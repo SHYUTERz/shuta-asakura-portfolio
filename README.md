@@ -7,8 +7,6 @@ HTML / CSS / JavaScript（ES Modules）で動作する静的サイトです。�
 
 ## 公開先
 
-- リポジトリ：<https://github.com/SHYUTERz/shuta-asakura-portfolio>
-- GitHub Pages：<https://shyuterz.github.io/shuta-asakura-portfolio/>
 - 作業・公開ブランチ：`feature/portfolio-site`
 - `main` から作業ブランチを作成。Unity・資料のリポジトリとは独立しています。
 

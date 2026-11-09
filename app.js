@@ -17,11 +17,10 @@ const projects = {
   aquarium:{
     title:'アロワナ水槽アセット',category:'UNITY ASSET / COLLABORATION',
     lead:'Unity URP向けの水槽インテリアアセット。アロワナの存在感を大切にしながら、モデル・泳ぐ動き・水面やエアレーションの表現をUnityのシーンにまとめた共同制作作品です。',
-    facts:[['制作形態','共同制作・BOOTH掲載作品'],['本人の担当','アロワナモデル / 水槽編集 / シェーダー調整'],['使用環境','Unity 2022.3.62f3 URP / Blender 4.5.5'],['モデル規模','アロワナ 約2,198 tris / 水槽 約5,703 tris']],
+    facts:[['制作形態','共同制作'],['本人の担当','アロワナモデル / 水槽編集 / シェーダー調整'],['使用環境','Unity 2022.3.62f3 URP / Blender 4.5.5'],['モデル規模','アロワナ 約2,198 tris / 水槽 約5,703 tris']],
     hero:'arowana-aquarium.webp',alt:'骨格付きアロワナと流木を配置した、Unity URP対応の水槽インテリア。',
     sections:[['制作内容',['アロワナのモデリング、ボーン、泳ぎとUターンのアニメーション。','水槽の編集とシェーダー調整。水面の揺れはシェーダー、エアレーションはParticle Systemで表現。','レイアウト済みのPrefabとして、シーンに配置して使える構成。']],['制作分担','水槽本体の3DモデリングはHachi.S氏が担当。本人はアロワナモデル、水槽編集、シェーダー調整を担当しています。商品説明・クレジットに基づいて制作範囲を分けて掲載しています。']],
-    link:['https://aschan.booth.pm/items/8057151','BOOTHで作品詳細を見る'],
-    credit:'Aquarium 3D Modeling: Hachi.S（@meetymeety）。Arowana Model / Aquarium Editing / Shader Adjustment: SHYUTERz。掲載仕様はBOOTHの商品説明に基づきます。公開・販売状況はリンク先をご確認ください。'
+    credit:'Aquarium 3D Modeling: Hachi.S（@meetymeety）。Arowana Model / Aquarium Editing / Shader Adjustment: 朝倉柊太。掲載仕様は作品の商品説明に基づきます。'
   },
   information:{
     title:'バーチャル万博 案内所',category:'XR SPACE / TEAM PROJECT',

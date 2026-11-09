@@ -7,7 +7,7 @@
 - 作品集（2025年9月10日版）：万博関連の制作記録と画像。テキストではなく各ページが画像のため、画像を読み取り、作品ごとの担当・期間・人数を整理しました。
 - 職務経歴書・履歴書（2026年10月29日版）：プロフィール、職務経験、スキル、学歴・資格の根拠。
 - もぐもぐマネジメント 紹介動画（BGM差し替え版）：実機映像と、本人確認済みの個人制作の担当情報。
-- BOOTH掲載作品URL：<https://aschan.booth.pm/items/8057151>
+- アロワナ水槽アセットの商品説明と制作分担情報。
 
 上記の履歴書・職務経歴書の原本や抽出テキストは公開していません。職歴は2026年10月29日時点です。作品集に記載の制作人数は、職務経歴書に記載のプロジェクト全体の人数と区別しています。
 
@@ -30,8 +30,8 @@ Licensed under Creative Commons: By Attribution 4.0 License
 ## アロワナ水槽アセット
 
 - Aquarium 3D Modeling：Hachi.S <https://x.com/meetymeety>
-- Arowana Model / Aquarium Editing / Shader Adjustment：SHYUTERz（朝倉柊太）
-- 出典・仕様・配布状況：<https://aschan.booth.pm/items/8057151>
+- Arowana Model / Aquarium Editing / Shader Adjustment：朝倉柊太
+- 作品の商品説明に基づき、使用環境とモデル規模を掲載しています。
 
 水槽本体を含めた全ての3Dモデリングを、本人単独の制作とは表記していません。掲載画像は商品紹介用画像です。モデルデータを配布するものではありません。
 
