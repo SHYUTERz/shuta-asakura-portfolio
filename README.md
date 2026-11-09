@@ -38,6 +38,8 @@ GitHubの Settings → Pages で、Source を「Deploy from a branch」、Branch
 
 連絡先メールは本人の希望により掲載しています。住所・電話番号・生年月日、履歴書・職務経歴書のPDF原本はリポジトリに含めていません。
 
+CSS・JavaScript・faviconの参照には内容ハッシュのバージョンを付けています。更新時にはindex.htmlのクエリ値も変更し、前のキャッシュが作品情報を表示し続けないようにしてください。scene.jsを変更した場合は、app.js内の参照バージョンも更新します。
+
 ## ローカルで確認
 
 ```sh

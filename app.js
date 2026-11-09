@@ -329,7 +329,7 @@ if ('IntersectionObserver' in window) {
   ['works','works-gallery','about','skills','experience','contact'].forEach(id => sectionObserver.observe(document.getElementById(id)));
 }
 const study = document.querySelector('.form-study');
-import('./scene.js').then(({initScene}) => {
+import('./scene.js?v=3726833ca42b').then(({initScene}) => {
   let failed = false;
   scene = initScene(document.querySelector('#form-canvas'), {
     reducedMotion: quiet || dialog.open,
