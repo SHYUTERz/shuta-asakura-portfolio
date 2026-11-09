@@ -11,8 +11,8 @@
   <meta name="theme-color" content="#ffffff">
   <title>朝倉柊太 | Unityエンジニア・3Dデザイナー</title>
   <link rel="icon" href="assets/favicon.svg?v=5652bdfa4701" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=a45733e6e28b">
-  <script src="app.js?v=1c6fe43fa026" type="module"></script>
+  <link rel="stylesheet" href="styles.css?v=73f00bdc7259">
+  <script src="app.js?v=065ae0e0fb7c" type="module"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">本文へ移動</a>
@@ -41,12 +41,21 @@
     </section>
 
 
-    <section class="featured section-wrap" id="works" aria-labelledby="works-title">
-      <div class="section-heading"><div><h2 id="works-title">作品</h2></div></div>
-      <article class="featured-work" aria-labelledby="mogu-title">
+    <section class="works-section section-wrap" id="works" aria-labelledby="works-title">
+      <div class="section-heading contents-heading"><h2 id="works-title">作品の目次</h2><p>6作品・3グループ</p></div>
+      <nav class="works-index" aria-label="作品の目次">
+        <a class="group-entry" data-group-link href="#app-projects"><span class="group-entry-top"><strong>アプリ開発</strong><span class="entry-count">1作品</span></span><span class="entry-description">もぐもぐマネジメント</span><span class="entry-arrow" aria-hidden="true">↓</span></a>
+        <a class="group-entry" data-group-link href="#asset-projects"><span class="group-entry-top"><strong>3Dアセット</strong><span class="entry-count">1作品</span></span><span class="entry-description">アロワナ水槽アセット</span><span class="entry-arrow" aria-hidden="true">↓</span></a>
+        <a class="group-entry" data-group-link href="#xr-projects"><span class="group-entry-top"><strong>XR・イベント制作</strong><span class="entry-count">4作品</span></span><span class="entry-description">万博関連の空間・イベント・AR</span><span class="entry-arrow" aria-hidden="true">↓</span></a>
+      </nav>
+      <nav class="profile-index" aria-label="プロフィールと経歴の目次"><a href="#about">プロフィール <span aria-hidden="true">↓</span></a><a href="#skills">スキル <span aria-hidden="true">↓</span></a><a href="#experience">職務経験 <span aria-hidden="true">↓</span></a><a href="#contact">連絡先 <span aria-hidden="true">↓</span></a></nav>
+
+      <section class="work-group" id="app-projects" aria-labelledby="app-group-title">
+        <div class="work-group-heading"><h3 id="app-group-title">アプリ開発</h3><span>1作品</span></div>
+        <article class="featured-work" id="work-mogumogu" aria-labelledby="mogu-title">
         <div class="featured-intro">
           <div class="work-label"><span class="work-entry-number">01</span> 個人開発・開発中 <span>2026</span></div>
-          <h3 id="mogu-title">もぐもぐ<br>マネジメント</h3>
+          <h4 class="project-title" id="mogu-title">もぐもぐ<br>マネジメント</h4>
           <p class="featured-lead">食品管理・キャラクター育成アプリ</p>
           <p>食品を使い切る日々の行動を、野菜キャラクターの成長につなげるアプリ。管理の操作にキャラクターの反応を加え、使う楽しさを育てています。</p>
           <dl class="compact-facts"><div><dt>担当</dt><dd>企画・プログラム・3D・UIなど制作全般</dd></div><div><dt>技術</dt><dd>Unity / C# / SQLite</dd></div><div><dt>検証</dt><dd>Android実機</dd></div></dl>
@@ -63,20 +72,28 @@
           <div class="feature-flow" aria-label="アプリの基本的な流れ"><span><b>01</b>食品を登録</span><i aria-hidden="true">→</i><span><b>02</b>使い切りを記録</span><i aria-hidden="true">→</i><span><b>03</b>キャラが成長</span></div>
         </div>
       </article>
+        <div class="group-end"><a class="index-back" href="#works">作品の目次へ <span aria-hidden="true">↑</span></a></div>
+      </section>
+
+      <section class="work-group" id="asset-projects" aria-labelledby="asset-group-title">
+        <div class="work-group-heading"><h3 id="asset-group-title">3Dアセット</h3><span>1作品</span></div>
+        <div class="asset-work"><article id="work-aquarium" class="work-card wide-card" data-category="asset"><button class="work-card-button" data-project="aquarium" aria-label="アロワナ水槽アセットの詳細を見る"><div class="work-image aquarium-image"><img src="assets/images/arowana-aquarium.webp" width="1024" height="576" loading="lazy" alt="青紫の照明に照らされた水槽。アロワナが流木の上を泳いでいる。"><span class="image-tag">Unityアセット / URP</span><span class="image-arrow" aria-hidden="true">↗</span></div><div class="work-card-heading"><span class="work-number">02</span><div><h4 class="project-title">アロワナ水槽アセット</h4><p>魚のモデリング・アニメーション / Unity調整</p></div></div></button><p class="card-credit">共同制作：水槽の3Dモデリング Hachi.S ／ アロワナ制作・水槽編集・シェーダー調整 朝倉柊太</p></article></div>
+        <div class="group-end"><a class="index-back" href="#works">作品の目次へ <span aria-hidden="true">↑</span></a></div>
+      </section>
+
+      <section class="work-group" id="xr-projects" aria-labelledby="xr-group-title">
+        <div class="work-group-heading"><h3 id="xr-group-title">XR・イベント制作</h3><span>4作品</span></div>
+        <nav class="project-index" aria-label="XR・イベント作品への移動"><a href="#work-information">案内所</a><a href="#work-fashion">ファッションショー</a><a href="#work-festival">盆踊り大会</a><a href="#work-quiz">ARクイズ</a></nav>
+        <div class="work-grid"><article id="work-information" class="work-card" data-category="xr"><button class="work-card-button" data-project="information" aria-label="バーチャル万博 案内所の詳細を見る"><div class="work-image"><img src="assets/images/expo-information.webp" width="1440" height="648" loading="lazy" alt="バーチャル万博案内所の内観。地図の立体模型と案内パネルが配置されている。"><span class="image-tag">XR空間・チーム制作</span><span class="image-arrow" aria-hidden="true">↗</span></div><div class="work-card-heading"><span class="work-number">03</span><div><h4 class="project-title">バーチャル万博 案内所</h4><p>小物・3D文字・地図のジオラマ制作</p></div></div></button></article>
+          <article id="work-fashion" class="work-card" data-category="xr"><button class="work-card-button" data-project="fashion" aria-label="EXPOアリーナ ファッションショーの詳細を見る"><div class="work-image"><img src="assets/images/expo-fashion.webp" width="1305" height="680" loading="lazy" alt="色鮮やかなライトに照らされたバーチャルのファッションショー会場。"><span class="image-tag">イベント空間・チーム制作</span><span class="image-arrow" aria-hidden="true">↗</span></div><div class="work-card-heading"><span class="work-number">04</span><div><h4 class="project-title">EXPOアリーナ ファッションショー</h4><p>会場改修・アバター向け小物制作</p></div></div></button></article>
+          <article id="work-festival" class="work-card" data-category="xr"><button class="work-card-button" data-project="festival" aria-label="EXPOアリーナ 盆踊り大会の詳細を見る"><div class="work-image"><img src="assets/images/expo-festival.webp" width="1440" height="576" loading="lazy" alt="夕焼けの空と提灯に囲まれた盆踊り会場。中央にやぐらと和太鼓がある。"><span class="image-tag">イベント空間・チーム制作</span><span class="image-arrow" aria-hidden="true">↗</span></div><div class="work-card-heading"><span class="work-number">05</span><div><h4 class="project-title">EXPOアリーナ 盆踊り大会</h4><p>会場制作・屋台・和太鼓・食品小物</p></div></div></button></article>
+          <article id="work-quiz" class="work-card" data-category="xr"><button class="work-card-button" data-project="quiz" aria-label="QuizKnock クイズイベント AR版の詳細を見る"><div class="work-image quiz-image"><img src="assets/images/quiz-ar.webp" width="1390" height="1490" loading="lazy" alt="ARクイズの問題、正解画面、キーワード案内などの画面レイアウト。"><span class="image-tag">ARコンテンツ・チーム制作</span><span class="image-arrow" aria-hidden="true">↗</span></div><div class="work-card-heading"><span class="work-number">06</span><div><h4 class="project-title">QuizKnock クイズイベント</h4><p>AR版コンテンツ制作</p></div></div></button></article></div>
+        <p class="gallery-footnote">万博関連作品はチーム制作です。掲載画像は作品集の制作当時の記録であり、各作品の担当範囲は詳細に記載しています。</p>
+        <div class="group-end"><a class="index-back" href="#works">作品の目次へ <span aria-hidden="true">↑</span></a></div>
+      </section>
     </section>
 
-    <section class="gallery-section section-wrap" id="works-gallery" aria-labelledby="gallery-title">
-      <div class="gallery-header"><h2 id="gallery-title">XR・3D作品</h2><div class="filters" role="group" aria-label="作品の絞り込み"><button data-filter="all" aria-pressed="true">すべて <span>05</span></button><button data-filter="xr" aria-pressed="false">XR・3D空間 <span>04</span></button><button data-filter="asset" aria-pressed="false">アセット <span>01</span></button></div></div>
-      <p class="sr-only" id="filter-status" aria-live="polite">5件の作品を表示しています。</p>
-      <div class="work-grid">
-        <article class="work-card wide-card" data-category="asset"><button class="work-card-button" data-project="aquarium" aria-label="アロワナ水槽アセットの詳細を見る"><div class="work-image aquarium-image"><img src="assets/images/arowana-aquarium.webp" width="1024" height="576" loading="lazy" alt="青紫の照明に照らされた水槽。アロワナが流木の上を泳いでいる。"><span class="image-tag">Unityアセット / URP</span><span class="image-arrow" aria-hidden="true">↗</span></div><div class="work-card-heading"><span class="work-number">02</span><div><h3>アロワナ水槽アセット</h3><p>魚のモデリング・アニメーション / Unity調整</p></div></div></button><p class="card-credit">共同制作：水槽の3Dモデリング Hachi.S ／ アロワナ制作・水槽編集・シェーダー調整 朝倉柊太</p></article>
-        <article class="work-card" data-category="xr"><button class="work-card-button" data-project="information" aria-label="バーチャル万博 案内所の詳細を見る"><div class="work-image"><img src="assets/images/expo-information.webp" width="1440" height="648" loading="lazy" alt="バーチャル万博案内所の内観。地図の立体模型と案内パネルが配置されている。"><span class="image-tag">XR空間・チーム制作</span><span class="image-arrow" aria-hidden="true">↗</span></div><div class="work-card-heading"><span class="work-number">03</span><div><h3>バーチャル万博 案内所</h3><p>小物・3D文字・地図のジオラマ制作</p></div></div></button></article>
-        <article class="work-card" data-category="xr"><button class="work-card-button" data-project="fashion" aria-label="EXPOアリーナ ファッションショーの詳細を見る"><div class="work-image"><img src="assets/images/expo-fashion.webp" width="1305" height="680" loading="lazy" alt="色鮮やかなライトに照らされたバーチャルのファッションショー会場。"><span class="image-tag">イベント空間・チーム制作</span><span class="image-arrow" aria-hidden="true">↗</span></div><div class="work-card-heading"><span class="work-number">04</span><div><h3>EXPOアリーナ ファッションショー</h3><p>会場改修・アバター向け小物制作</p></div></div></button></article>
-        <article class="work-card" data-category="xr"><button class="work-card-button" data-project="festival" aria-label="EXPOアリーナ 盆踊り大会の詳細を見る"><div class="work-image"><img src="assets/images/expo-festival.webp" width="1440" height="576" loading="lazy" alt="夕焼けの空と提灯に囲まれた盆踊り会場。中央にやぐらと和太鼓がある。"><span class="image-tag">イベント空間・チーム制作</span><span class="image-arrow" aria-hidden="true">↗</span></div><div class="work-card-heading"><span class="work-number">05</span><div><h3>EXPOアリーナ 盆踊り大会</h3><p>会場制作・屋台・和太鼓・食品小物</p></div></div></button></article>
-        <article class="work-card" data-category="xr"><button class="work-card-button" data-project="quiz" aria-label="QuizKnock クイズイベント AR版の詳細を見る"><div class="work-image quiz-image"><img src="assets/images/quiz-ar.webp" width="1390" height="1490" loading="lazy" alt="ARクイズの問題、正解画面、キーワード案内などの画面レイアウト。"><span class="image-tag">ARコンテンツ・チーム制作</span><span class="image-arrow" aria-hidden="true">↗</span></div><div class="work-card-heading"><span class="work-number">06</span><div><h3>QuizKnock クイズイベント</h3><p>AR版コンテンツ制作</p></div></div></button></article>
-      </div>
-      <p class="gallery-footnote">万博関連作品はチーム制作です。掲載画像は作品集の制作当時の記録であり、各作品の担当範囲は詳細に記載しています。</p>
-    </section>
+
 
     <section class="about-section" id="about" aria-labelledby="about-title"><div class="section-wrap about-layout">
       <div><h2 id="about-title">プロフィール</h2><p class="about-name">朝倉 柊太<span>Shuta Asakura</span></p></div>
@@ -103,6 +120,6 @@
   <footer class="site-footer section-wrap"><div><a class="footer-name" href="#top">Shuta Asakura</a><p>© 2026 Shuta Asakura. 作品画像・映像の権利は各権利者に帰属します。</p></div><details class="credits"><summary>制作クレジット・掲載情報</summary><p>万博関連作品：チーム制作。当サイトでは本人の担当範囲を作品ごとに記載しています。</p><p>アロワナ水槽：水槽3Dモデリング Hachi.S（<a href="https://x.com/meetymeety" target="_blank" rel="noopener noreferrer">@meetymeety</a>）／アロワナモデル・水槽編集・シェーダー調整 朝倉柊太。</p><p>紹介動画BGM：<a href="https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1200076" target="_blank" rel="noopener noreferrer">Easy Lemon — Kevin MacLeod (incompetech.com)</a>。<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>。一部抜粋・音量調整・フェードを実施。</p><p>経歴は2026年10月29日、万博作品の記録は2025年9月の本人提供資料に基づきます。アプリは開発中で、公開済み製品を示すものではありません。</p></details><a class="back-top" href="#top" aria-label="ページの先頭へ">↑</a></footer>
 
   <dialog id="project-dialog" aria-labelledby="dialog-title"><div class="dialog-top"><span class="eyebrow">作品詳細 <span class="dialog-index"></span></span><div class="dialog-tools"><button class="copy-project" type="button" aria-label="この作品のリンクをコピー">リンクをコピー</button><button class="dialog-close" aria-label="作品の詳細を閉じる">閉じる <span aria-hidden="true">×</span></button></div></div><div id="dialog-content"></div><div class="dialog-next"><button class="text-link" type="button">次の作品 <span aria-hidden="true">→</span></button></div><p class="sr-only" id="copy-status" aria-live="polite"></p></dialog>
-  <noscript><p class="noscript-note">JavaScriptが無効のため、作品の詳細表示と絞り込みは利用できません。掲載画像、動画、経歴、連絡先はそのままご覧いただけます。</p></noscript>
+  <noscript><p class="noscript-note">JavaScriptが無効のため、作品の詳細表示は利用できません。掲載画像、動画、経歴、連絡先はそのままご覧いただけます。</p></noscript>
 </body>
 </html>

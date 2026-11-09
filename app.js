@@ -234,20 +234,6 @@ copyButton.addEventListener('click', async () => {
 window.addEventListener('popstate', syncRoute);
 window.addEventListener('hashchange', syncRoute);
 
-const filters = document.querySelectorAll('[data-filter]');
-const grid = document.querySelector('.work-grid');
-filters.forEach(button => button.addEventListener('click', () => {
-  const type = button.dataset.filter;
-  filters.forEach(b => b.setAttribute('aria-pressed', String(b === button)));
-  let visible = 0;
-  document.querySelectorAll('.work-card').forEach(card => {
-    card.hidden = type !== 'all' && card.dataset.category !== type;
-    if (!card.hidden) visible++;
-  });
-  grid.classList.toggle('is-filtered', type !== 'all');
-  document.querySelector('#filter-status').textContent = visible + '件の作品を表示しています。';
-}));
-
 const toggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('#site-nav');
 function closeMenu(restoreFocus = false) {
@@ -311,17 +297,32 @@ if ('IntersectionObserver' in window) {
     entranceAnimations.add(animation);
     animation.finished.catch(() => {}).finally(() => entranceAnimations.delete(animation));
   }), { threshold: .08, rootMargin: '0px 0px -32px 0px' });
-  document.querySelectorAll('.section-heading, .work-card, .about-layout, .skill-row, .timeline > li').forEach(el => entrances.observe(el));
+  document.querySelectorAll('.section-heading, .work-group-heading, .work-card, .about-layout, .skill-row, .timeline > li').forEach(el => entrances.observe(el));
+  const groupIds = ['app-projects', 'asset-projects', 'xr-projects'];
+  const sectionIds = ['works', ...groupIds, 'about', 'skills', 'experience', 'contact'];
+  const headerSection = {
+    works: 'works', 'app-projects': 'works', 'asset-projects': 'works', 'xr-projects': 'works',
+    about: 'about', skills: 'about', experience: 'experience', contact: 'contact',
+  };
+  const groupLinks = document.querySelectorAll('[data-group-link]');
   const sectionVisibility = new Map();
   const sectionObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => sectionVisibility.set(entry.target.id, entry.isIntersecting));
-    const current = ['contact','experience','about','works'].find(id => sectionVisibility.get(id))
-      || (sectionVisibility.get('skills') ? 'about' : sectionVisibility.get('works-gallery') ? 'works' : null);
+    const currentSection = [...sectionIds].reverse().find(id => sectionVisibility.get(id));
+    const currentHeader = headerSection[currentSection];
+    const currentGroup = groupIds.includes(currentSection) ? currentSection : null;
     nav.querySelectorAll('a').forEach(a => {
-      if (a.hash === '#' + current) a.setAttribute('aria-current','location');
+      if (currentHeader && a.hash === '#' + currentHeader) a.setAttribute('aria-current', 'location');
+      else a.removeAttribute('aria-current');
+    });
+    groupLinks.forEach(a => {
+      if (currentGroup && a.hash === '#' + currentGroup) a.setAttribute('aria-current', 'location');
       else a.removeAttribute('aria-current');
     });
   }, { rootMargin: '-18% 0px -35% 0px', threshold: 0 });
-  ['works','works-gallery','about','skills','experience','contact'].forEach(id => sectionObserver.observe(document.getElementById(id)));
+  sectionIds.forEach(id => {
+    const section = document.getElementById(id);
+    if (section) sectionObserver.observe(section);
+  });
 }
 syncRoute();
