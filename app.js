@@ -2,7 +2,7 @@
 
 const projects = {
   mogumogu: {
-    title:'もぐもぐマネジメント', category:'PERSONAL PROJECT / IN DEVELOPMENT',
+    title:'もぐもぐマネジメント', category:'個人開発・開発中',
     lead:'食品管理と野菜キャラクター育成を組み合わせた、個人開発のスマートフォンアプリです。食品を登録・管理し、使い切った実績がキャラクターの成長につながる体験を制作しています。',
     facts:[['制作形態','個人開発・開発中'],['担当','企画・プログラム・3D・UIなど制作全般'],['使用技術','Unity / C# / SQLite'],['動作確認','Android実機']],
     hero:'mogumogu-poster.webp', alt:'食品管理を楽しく継続するアプリ、もぐもぐマネジメントの実機紹介画面。',
@@ -15,7 +15,7 @@ const projects = {
     credit:'本人による個人開発。紹介動画BGMはKevin MacLeod「Easy Lemon」（CC BY 4.0）。曲の著作権は作曲者に帰属します。'
   },
   aquarium:{
-    title:'アロワナ水槽アセット',category:'UNITY ASSET / COLLABORATION',
+    title:'アロワナ水槽アセット',category:'Unityアセット・共同制作',
     lead:'Unity URP向けの水槽インテリアアセット。アロワナの存在感を大切にしながら、モデル・泳ぐ動き・水面やエアレーションの表現をUnityのシーンにまとめた共同制作作品です。',
     facts:[['制作形態','共同制作'],['本人の担当','アロワナモデル / 水槽編集 / シェーダー調整'],['使用環境','Unity 2022.3.62f3 URP / Blender 4.5.5'],['モデル規模','アロワナ 約2,198 tris / 水槽 約5,703 tris']],
     hero:'arowana-aquarium.webp',alt:'骨格付きアロワナと流木を配置した、Unity URP対応の水槽インテリア。',
@@ -23,7 +23,7 @@ const projects = {
     credit:'Aquarium 3D Modeling: Hachi.S（@meetymeety）。Arowana Model / Aquarium Editing / Shader Adjustment: 朝倉柊太。掲載仕様は作品の商品説明に基づきます。'
   },
   information:{
-    title:'バーチャル万博 案内所',category:'XR SPACE / TEAM PROJECT',
+    title:'バーチャル万博 案内所',category:'XR空間・チーム制作',
     lead:'テンプレートの内観ルームを使い、近未来をテーマにした案内所をチームで制作。案内情報や地図を3D空間に配置し、来場者が目的の場所を探す体験を支える空間にしました。',
     facts:[['制作期間','2か月（2025年の作品記録）'],['制作人数','3名'],['主な担当','小物モデリング、3D文字、地図ジオラマ等'],['使用技術','Unity / Blender / GIMP']],
     hero:'expo-information.webp',alt:'バーチャル万博の案内所に設置された地図のジオラマと案内パネル。',
@@ -32,7 +32,7 @@ const projects = {
     credit:'本人提供の2025年9月版作品集より。バーチャル万博関連のチーム制作。各ブランド・キャラクター等の権利は各権利者に帰属します。'
   },
   fashion:{
-    title:'EXPOアリーナ ファッションショー',category:'EVENT SPACE / TEAM PROJECT',
+    title:'EXPOアリーナ ファッションショー',category:'イベント会場・チーム制作',
     lead:'新シーズンのアバター衣装を披露するため、既存のEXPOアリーナを大幅に改修。ステージの見え方と、アバターが参加するイベント体験をチームで制作しました。',
     facts:[['制作期間','1か月'],['制作人数','2名'],['制作内容','会場改修、3D看板、小物など'],['使用技術','Unity / Blender / GIMP']],
     hero:'expo-fashion.webp',alt:'ライト演出とアバターが集まる、EXPOアリーナのファッションショー。',
@@ -41,7 +41,7 @@ const projects = {
     credit:'本人提供の作品集より。2名でのチーム制作。既存の会場テンプレートを使用。掲載画像に含まれるブランド・アバター等の権利は各権利者に帰属します。'
   },
   festival:{
-    title:'EXPOアリーナ 盆踊り大会',category:'EVENT SPACE / TEAM PROJECT',
+    title:'EXPOアリーナ 盆踊り大会',category:'イベント会場・チーム制作',
     lead:'夕焼けと提灯に囲まれた盆踊り会場を、EXPOアリーナのテンプレートから制作。屋台、和太鼓、食品小物などを組み合わせ、アバターで参加できる祭りの雰囲気をつくりました。',
     facts:[['制作期間','2週間'],['制作人数','2名'],['制作内容','会場改修 / 屋台 / 和太鼓 / 小物'],['使用技術','Unity / Blender / GIMP']],
     hero:'expo-festival.webp',alt:'夕焼けの盆踊り会場に、提灯、やぐら、屋台が並んでいる。',
@@ -50,7 +50,7 @@ const projects = {
     credit:'本人提供の作品集より。2名でのチーム制作。既存テンプレートを活用。画像内の全ての構成要素を本人が単独で制作したものではありません。'
   },
   quiz:{
-    title:'QuizKnock クイズイベント AR版',category:'AR CONTENT / TEAM PROJECT',
+    title:'QuizKnock クイズイベント AR版',category:'ARコンテンツ・チーム制作',
     lead:'VRとARの両方を使い、各地のクイズを解いてキーワードを集めるイベント。チーム内で担当を分け、本人はAR版のコンテンツ制作を担当しました。',
     facts:[['制作期間','2週間'],['制作人数','2名'],['本人の担当','AR版コンテンツ制作'],['使用技術','Unity / Blender / GIMP']],
     hero:'quiz-ar.webp',alt:'QuizKnockのARクイズで使う問題・正解・キーワード案内の画面。',
@@ -170,7 +170,6 @@ function renderProject(key, historyMode = 'push') {
   nextButton.innerHTML = '次の作品：' + escapeHTML(projects[projectKeys[(index + 1) % projectKeys.length]].title) + ' <span aria-hidden="true">→</span>';
   if (!wasOpen) {
     document.querySelector('video')?.pause();
-    scene?.setReducedMotion(true);
     dialog.showModal();
     document.body.classList.add('dialog-open');
   }
@@ -207,7 +206,6 @@ dialog.addEventListener('close', () => {
   const restore = previousFocus === document.body ? document.querySelector('[data-project="' + activeProject + '"]') : previousFocus;
   activeProject = null;
   document.body.classList.remove('dialog-open');
-  scene?.setReducedMotion(quiet);
   restore?.focus({ preventScroll: previousFocus !== document.body });
 });
 nextButton.addEventListener('click', () => renderProject(projectKeys[(projectKeys.indexOf(activeProject) + 1) % projectKeys.length], 'replace'));
@@ -281,7 +279,6 @@ const motionToggle = document.querySelector('.motion-toggle');
 let userQuiet = false;
 try { userQuiet = localStorage.getItem('portfolio-quiet') === 'true'; } catch { /* Storage is optional. */ }
 let quiet = userQuiet || motionPreference.matches;
-let scene;
 const entranceAnimations = new Set();
 function updateMotion() {
   quiet = userQuiet || motionPreference.matches;
@@ -291,7 +288,6 @@ function updateMotion() {
   motionToggle.querySelector('.motion-label').textContent = motionPreference.matches ? '静止表示' : quiet ? '動きを有効に' : '動きを止める';
   motionToggle.querySelector('.motion-symbol').textContent = quiet ? '▷' : 'Ⅱ';
   if (quiet) entranceAnimations.forEach(animation => animation.cancel());
-  scene?.setReducedMotion(quiet || dialog.open);
 }
 motionToggle.hidden = false;
 motionToggle.addEventListener('click', () => {
@@ -328,14 +324,4 @@ if ('IntersectionObserver' in window) {
   }, { rootMargin: '-18% 0px -35% 0px', threshold: 0 });
   ['works','works-gallery','about','skills','experience','contact'].forEach(id => sectionObserver.observe(document.getElementById(id)));
 }
-const study = document.querySelector('.form-study');
-import('./scene.js?v=3726833ca42b').then(({initScene}) => {
-  let failed = false;
-  scene = initScene(document.querySelector('#form-canvas'), {
-    reducedMotion: quiet || dialog.open,
-    onAvailable: () => study.classList.add('has-scene'),
-    onUnavailable: () => { failed = true; study.classList.remove('has-scene'); }
-  });
-  if (!failed) study.classList.add('has-scene');
-}).catch(() => study.classList.remove('has-scene'));
 syncRoute();
