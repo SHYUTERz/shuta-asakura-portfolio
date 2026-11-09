@@ -1,7 +1,9 @@
 # 朝倉柊太 Portfolio
 
 Unityエンジニア・3Dデザイナー 朝倉柊太のポートフォリオサイト。
-HTML / CSS / JavaScriptだけで動作する静的サイトです。ビルドや外部ライブラリは不要です。
+HTML / CSS / JavaScript（ES Modules）で動作する静的サイトです。ビルドや外部ライブラリは不要です。
+
+紙面のような余白、明朝体、グラファイトと鉄錆色を使った「制作ノート」のデザイン。冒頭の折り畳まれたリボンは、WebGL / GLSLによる独自の形状スタディです。実績を示す作品画像とは分けて表示しています。
 
 ## 公開先
 
@@ -18,7 +20,10 @@ GitHubの Settings → Pages で、Source を「Deploy from a branch」、Branch
 - アロワナ水槽アセット：共同制作。本人とHachi.S氏の担当を分けて記載
 - バーチャル万博の案内所、ファッションショー、盆踊り大会、ARクイズ：チーム制作の担当詳細と画像
 - プロフィール、スキル、職務経験、学歴・資格、連絡先
-- 作品の絞り込み、詳細ダイアログ、スマートフォン用メニュー
+- 作品の絞り込み、共有可能な作品詳細URL、次の作品への移動、スマートフォン用の目次
+- 「動きを止める」で立体・スクロール登場演出を停止し、選択を端末に保存。端末の動きを減らす設定にも対応
+- WebGL非対応時はSVGを表示。画面外・非表示タブ・作品詳細表示中は立体の連続描画を停止
+- 印刷時は絞り込み状態にかかわらず全作品を表示
 
 ## 更新する場所
 
@@ -27,6 +32,7 @@ GitHubの Settings → Pages で、Source を「Deploy from a branch」、Branch
 | `index.html` | 基本情報、作品一覧、職務経験、連絡先、クレジット |
 | `app.js` | 各作品の詳細、絞り込み、ダイアログ、モバイルメニュー |
 | `styles.css` | 色・余白・文字サイズ・レスポンシブ表示 |
+| `scene.js` | 独自のWebGL形状スタディ、描画・低負荷制御 |
 | `assets/images/` | 掲載用に抽出・軽量化した作品画像 |
 | `assets/video/mogumogu-portfolio.mp4` | BGM差し替え済みの紹介動画 |
 | `assets/video/mogumogu-ja.vtt` | 動画内容の日本語説明字幕 |
@@ -39,6 +45,8 @@ GitHubの Settings → Pages で、Source を「Deploy from a branch」、Branch
 ```sh
 python -m http.server 4173
 ```
+
+Pythonがない場合は、任意の静的HTTPサーバーを使えます。ES Modulesを使用するため、HTMLファイルの直接ダブルクリックではなくHTTP経由で開いてください。
 
 ブラウザーで `http://localhost:4173` を開きます。公開先のサブディレクトリでも動くよう、ローカル素材のパスは相対パスです。
 

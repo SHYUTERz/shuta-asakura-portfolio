@@ -61,33 +61,282 @@ const projects = {
   }
 };
 
-const dialog=document.querySelector('#project-dialog');
-const content=document.querySelector('#dialog-content');
-let previousFocus=null;
 
-// All copy is static and authored above; user input is never interpolated.
-function escapeHTML(text){return String(text).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
-function openProject(key){
-  const p=projects[key];if(!p)return;
-  previousFocus=document.activeElement;
-  content.innerHTML=`<article class="project-detail"><p class="project-category">${escapeHTML(p.category)}</p><h2 id="dialog-title">${escapeHTML(p.title)}</h2><p class="project-lead">${escapeHTML(p.lead)}</p><dl>${p.facts.map(([a,b])=>`<div><dt>${escapeHTML(a)}</dt><dd>${escapeHTML(b)}</dd></div>`).join('')}</dl><a class="detail-hero-link" href="assets/images/${p.hero}" target="_blank" rel="noopener noreferrer" aria-label="作品画像を大きく開く"><img class="detail-hero" src="assets/images/${p.hero}" alt="${escapeHTML(p.alt)}"><span>画像を大きく表示 ↗</span></a>${p.sections.map(([title,body])=>`<section class="detail-section"><h3>${escapeHTML(title)}</h3>${Array.isArray(body)?`<ul>${body.map(t=>`<li>${escapeHTML(t)}</li>`).join('')}</ul>`:`<p>${escapeHTML(body)}</p>`}</section>`).join('')}${p.gallery?`<div class="detail-gallery">${p.gallery.map(([file,label])=>`<figure><a href="assets/images/${file}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHTML(label)}を大きく開く"><img src="assets/images/${file}" alt="${escapeHTML(label)}" loading="lazy"></a><figcaption>${escapeHTML(label)}</figcaption></figure>`).join('')}</div>`:''}${p.link?`<a class="text-link detail-link" href="${p.link[0]}" target="_blank" rel="noopener noreferrer">${escapeHTML(p.link[1])} ↗</a>`:''}<p class="detail-credit">${escapeHTML(p.credit)}</p></article>`;
-  dialog.showModal();document.body.classList.add('dialog-open');dialog.scrollTop=0;
-  dialog.querySelector('.dialog-close').focus();
+const imageDimensions = {
+  "arowana-aquarium.webp": [
+    1024,
+    576
+  ],
+  "expo-drum.webp": [
+    1360,
+    900
+  ],
+  "expo-fashion-assets.webp": [
+    1271,
+    1600
+  ],
+  "expo-fashion.webp": [
+    1305,
+    680
+  ],
+  "expo-festival-overview.webp": [
+    1440,
+    710
+  ],
+  "expo-festival.webp": [
+    1440,
+    576
+  ],
+  "expo-food-props.webp": [
+    987,
+    1600
+  ],
+  "expo-information.webp": [
+    1440,
+    648
+  ],
+  "expo-ring.webp": [
+    1440,
+    922
+  ],
+  "expo-theatre.webp": [
+    1440,
+    1205
+  ],
+  "mogumogu-home.webp": [
+    432,
+    936
+  ],
+  "mogumogu-management.webp": [
+    432,
+    936
+  ],
+  "mogumogu-park.webp": [
+    432,
+    936
+  ],
+  "mogumogu-poster.webp": [
+    1920,
+    1080
+  ],
+  "quiz-ar.webp": [
+    1390,
+    1490
+  ],
+  "quiz-vr.webp": [
+    1257,
+    1600
+  ]
+};
+
+const dialog = document.querySelector('#project-dialog');
+const content = document.querySelector('#dialog-content');
+const closeButton = dialog.querySelector('.dialog-close');
+const copyButton = dialog.querySelector('.copy-project');
+const nextButton = dialog.querySelector('.dialog-next button');
+const projectKeys = Object.keys(projects);
+let previousFocus = null;
+let activeProject = null;
+let copyReset;
+
+function escapeHTML(text) {
+  return String(text).replace(/[&<>"']/g, c => ({'&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'}[c]));
 }
-document.querySelectorAll('[data-project]').forEach(b=>b.addEventListener('click',()=>openProject(b.dataset.project)));
-dialog.querySelector('.dialog-close').addEventListener('click',()=>dialog.close());
-dialog.addEventListener('click',event=>{if(event.target===dialog){const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)dialog.close();}});
-dialog.addEventListener('close',()=>{document.body.classList.remove('dialog-open');previousFocus?.focus();});
+function projectImage(file, alt, className = '', lazy = false) {
+  const [width, height] = imageDimensions[file];
+  return '<img class="' + className + '" src="assets/images/' + file + '" width="' + width + '" height="' + height + '" alt="' + escapeHTML(alt) + '"' + (lazy ? ' loading="lazy"' : '') + '>';
+}
+function routeProject() {
+  const key = location.hash.replace('#project-', '');
+  return location.hash.startsWith('#project-') && Object.hasOwn(projects, key) ? key : null;
+}
+function renderProject(key, historyMode = 'push') {
+  const p = projects[key];
+  if (!p) return;
+  const wasOpen = dialog.open;
+  if (!wasOpen) previousFocus = document.activeElement;
+  if (historyMode !== 'none') {
+    const returnHash = wasOpen ? history.state?.returnHash || '#works' : location.hash;
+    const state = { portfolioProject: wasOpen ? Boolean(history.state?.portfolioProject) : historyMode === 'push', returnHash };
+    history[historyMode === 'replace' || wasOpen ? 'replaceState' : 'pushState'](state, '', '#project-' + key);
+  }
+  activeProject = key;
+  dialog.querySelector('.share-url')?.remove();
+  clearTimeout(copyReset);
+  copyButton.textContent = 'リンクをコピー';
+  document.querySelector('#copy-status').textContent = '';
+  const index = projectKeys.indexOf(key);
+  dialog.querySelector('.dialog-index').textContent = String(index + 1).padStart(2, '0') + ' / 06';
+  content.innerHTML = '<article class="project-detail"><p class="project-category">' + escapeHTML(p.category) + '</p><h2 id="dialog-title">' + escapeHTML(p.title) + '</h2><p class="project-lead">' + escapeHTML(p.lead) + '</p><dl>' + p.facts.map(([a,b]) => '<div><dt>' + escapeHTML(a) + '</dt><dd>' + escapeHTML(b) + '</dd></div>').join('') + '</dl><a class="detail-hero-link" href="assets/images/' + p.hero + '" target="_blank" rel="noopener noreferrer" aria-label="作品画像を大きく開く">' + projectImage(p.hero, p.alt, 'detail-hero') + '<span>画像を大きく表示 ↗</span></a>' + p.sections.map(([title,body]) => '<section class="detail-section"><h3>' + escapeHTML(title) + '</h3>' + (Array.isArray(body) ? '<ul>' + body.map(t => '<li>' + escapeHTML(t) + '</li>').join('') + '</ul>' : '<p>' + escapeHTML(body) + '</p>') + '</section>').join('') + (p.gallery ? '<div class="detail-gallery">' + p.gallery.map(([file,label]) => '<figure><a href="assets/images/' + file + '" target="_blank" rel="noopener noreferrer" aria-label="' + escapeHTML(label) + 'を大きく開く">' + projectImage(file, label, '', true) + '</a><figcaption>' + escapeHTML(label) + '</figcaption></figure>').join('') + '</div>' : '') + (p.link ? '<a class="text-link detail-link" href="' + p.link[0] + '" target="_blank" rel="noopener noreferrer">' + escapeHTML(p.link[1]) + ' ↗</a>' : '') + '<p class="detail-credit">' + escapeHTML(p.credit) + '</p></article>';
+  nextButton.innerHTML = '次の作品：' + escapeHTML(projects[projectKeys[(index + 1) % projectKeys.length]].title) + ' <span aria-hidden="true">→</span>';
+  if (!wasOpen) {
+    document.querySelector('video')?.pause();
+    scene?.setReducedMotion(true);
+    dialog.showModal();
+    document.body.classList.add('dialog-open');
+  }
+  dialog.scrollTop = 0;
+  closeButton.focus({ preventScroll: true });
+}
+function syncRoute() {
+  const key = routeProject();
+  if (key) {
+    if (key !== activeProject || !dialog.open) renderProject(key, 'none');
+  } else if (dialog.open) dialog.close();
+}
+function requestClose() {
+  if (history.state?.portfolioProject) history.back();
+  else {
+    history.replaceState(null, '', history.state?.returnHash || '#works');
+    dialog.close();
+  }
+}
+document.querySelectorAll('[data-project]').forEach(button => button.addEventListener('click', () => renderProject(button.dataset.project)));
+closeButton.addEventListener('click', requestClose);
+dialog.addEventListener('cancel', event => { event.preventDefault(); requestClose(); });
+let backdropDown = false;
+function outsideDialog(event) {
+  const r = dialog.getBoundingClientRect();
+  return event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom;
+}
+dialog.addEventListener('pointerdown', event => { backdropDown = event.target === dialog && outsideDialog(event); });
+dialog.addEventListener('click', event => {
+  if (backdropDown && event.target === dialog && outsideDialog(event)) requestClose();
+  backdropDown = false;
+});
+dialog.addEventListener('close', () => {
+  const restore = previousFocus === document.body ? document.querySelector('[data-project="' + activeProject + '"]') : previousFocus;
+  activeProject = null;
+  document.body.classList.remove('dialog-open');
+  scene?.setReducedMotion(quiet);
+  restore?.focus({ preventScroll: previousFocus !== document.body });
+});
+nextButton.addEventListener('click', () => renderProject(projectKeys[(projectKeys.indexOf(activeProject) + 1) % projectKeys.length], 'replace'));
+copyButton.addEventListener('click', async () => {
+  try {
+    await navigator.clipboard.writeText(location.href);
+    copyButton.textContent = 'コピーしました';
+    document.querySelector('#copy-status').textContent = 'この作品へのリンクをコピーしました。';
+    copyReset = setTimeout(() => { copyButton.textContent = 'リンクをコピー'; }, 2500);
+  } catch {
+    // A selectable, inline fallback also works when clipboard permission is absent.
+    let input = dialog.querySelector('.share-url');
+    if (!input) {
+      input = document.createElement('input');
+      input.className = 'share-url';
+      input.readOnly = true;
+      input.setAttribute('aria-label', 'この作品の共有URL');
+      dialog.querySelector('.dialog-top').after(input);
+    }
+    input.value = location.href;
+    input.focus();
+    input.select();
+    document.querySelector('#copy-status').textContent = '共有URLを選択しました。コピーしてお使いください。';
+  }
+});
+window.addEventListener('popstate', syncRoute);
+window.addEventListener('hashchange', syncRoute);
 
-document.querySelectorAll('[data-filter]').forEach(button=>button.addEventListener('click',()=>{
-  const type=button.dataset.filter;
-  document.querySelectorAll('[data-filter]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));
-  let visible=0;
-  document.querySelectorAll('.work-card').forEach(card=>{card.hidden=type!=='all'&&card.dataset.category!==type;if(!card.hidden)visible++;});
-  document.querySelector('#filter-status').textContent=`${visible}件の作品を表示しています。`;
+const filters = document.querySelectorAll('[data-filter]');
+const grid = document.querySelector('.work-grid');
+filters.forEach(button => button.addEventListener('click', () => {
+  const type = button.dataset.filter;
+  filters.forEach(b => b.setAttribute('aria-pressed', String(b === button)));
+  let visible = 0;
+  document.querySelectorAll('.work-card').forEach(card => {
+    card.hidden = type !== 'all' && card.dataset.category !== type;
+    if (!card.hidden) visible++;
+  });
+  grid.classList.toggle('is-filtered', type !== 'all');
+  document.querySelector('#filter-status').textContent = visible + '件の作品を表示しています。';
 }));
 
-const toggle=document.querySelector('.menu-toggle'),nav=document.querySelector('#site-nav');
-toggle.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')!=='true';toggle.setAttribute('aria-expanded',String(open));nav.classList.toggle('open',open);toggle.querySelector('span').textContent=open?'−':'＋';});
-nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{toggle.setAttribute('aria-expanded','false');nav.classList.remove('open');toggle.querySelector('span').textContent='＋';}));
-document.addEventListener('keydown',event=>{if(event.key==='Escape'&&!dialog.open){toggle.setAttribute('aria-expanded','false');nav.classList.remove('open');toggle.querySelector('span').textContent='＋';}});
+const toggle = document.querySelector('.menu-toggle');
+const nav = document.querySelector('#site-nav');
+function closeMenu(restoreFocus = false) {
+  toggle.setAttribute('aria-expanded', 'false');
+  nav.classList.remove('open');
+  toggle.querySelector('span').textContent = '＋';
+  if (restoreFocus) toggle.focus();
+}
+toggle.addEventListener('click', () => {
+  const open = toggle.getAttribute('aria-expanded') !== 'true';
+  toggle.setAttribute('aria-expanded', String(open));
+  nav.classList.toggle('open', open);
+  toggle.querySelector('span').textContent = open ? '−' : '＋';
+});
+nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => closeMenu()));
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && !dialog.open && nav.classList.contains('open')) closeMenu(true);
+});
+document.addEventListener('click', event => {
+  if (!event.target.closest('.site-header') && nav.classList.contains('open')) closeMenu();
+});
+const mobileLayout = matchMedia('(max-width: 640px)');
+mobileLayout.addEventListener('change', () => closeMenu());
+document.documentElement.classList.add('js');
+
+// Quiet mode is useful while presenting and always honors the device preference.
+const motionPreference = matchMedia('(prefers-reduced-motion: reduce)');
+const motionToggle = document.querySelector('.motion-toggle');
+let userQuiet = false;
+try { userQuiet = localStorage.getItem('portfolio-quiet') === 'true'; } catch { /* Storage is optional. */ }
+let quiet = userQuiet || motionPreference.matches;
+let scene;
+const entranceAnimations = new Set();
+function updateMotion() {
+  quiet = userQuiet || motionPreference.matches;
+  document.documentElement.dataset.quiet = String(quiet);
+  motionToggle.setAttribute('aria-pressed', String(quiet));
+  motionToggle.disabled = motionPreference.matches;
+  motionToggle.querySelector('.motion-label').textContent = motionPreference.matches ? '静止表示' : quiet ? '動きを有効に' : '動きを止める';
+  motionToggle.querySelector('.motion-symbol').textContent = quiet ? '▷' : 'Ⅱ';
+  if (quiet) entranceAnimations.forEach(animation => animation.cancel());
+  scene?.setReducedMotion(quiet || dialog.open);
+}
+motionToggle.hidden = false;
+motionToggle.addEventListener('click', () => {
+  userQuiet = !quiet;
+  try { localStorage.setItem('portfolio-quiet', String(userQuiet)); } catch { /* The control still works without persistence. */ }
+  updateMotion();
+});
+motionPreference.addEventListener('change', updateMotion);
+updateMotion();
+
+// Each entrance happens once; content remains visible if enhancement is unavailable.
+if ('IntersectionObserver' in window) {
+  const entrances = new IntersectionObserver(entries => entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    entrances.unobserve(entry.target);
+    if (quiet || !entry.target.animate) return;
+    const animation = entry.target.animate([
+      { opacity: .45, transform: 'translateY(16px)' },
+      { opacity: 1, transform: 'translateY(0)' }
+    ], { duration: 720, easing: 'cubic-bezier(.22,.68,.24,1)' });
+    entranceAnimations.add(animation);
+    animation.finished.catch(() => {}).finally(() => entranceAnimations.delete(animation));
+  }), { threshold: .08, rootMargin: '0px 0px -32px 0px' });
+  document.querySelectorAll('.section-heading, .work-card, .about-layout, .skill-row, .timeline > li').forEach(el => entrances.observe(el));
+  const sectionVisibility = new Map();
+  const sectionObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => sectionVisibility.set(entry.target.id, entry.isIntersecting));
+    const current = ['contact','experience','about','works'].find(id => sectionVisibility.get(id))
+      || (sectionVisibility.get('skills') ? 'about' : sectionVisibility.get('works-gallery') ? 'works' : null);
+    nav.querySelectorAll('a').forEach(a => {
+      if (a.hash === '#' + current) a.setAttribute('aria-current','location');
+      else a.removeAttribute('aria-current');
+    });
+  }, { rootMargin: '-18% 0px -35% 0px', threshold: 0 });
+  ['works','works-gallery','about','skills','experience','contact'].forEach(id => sectionObserver.observe(document.getElementById(id)));
+}
+const study = document.querySelector('.form-study');
+import('./scene.js').then(({initScene}) => {
+  let failed = false;
+  scene = initScene(document.querySelector('#form-canvas'), {
+    reducedMotion: quiet || dialog.open,
+    onAvailable: () => study.classList.add('has-scene'),
+    onUnavailable: () => { failed = true; study.classList.remove('has-scene'); }
+  });
+  if (!failed) study.classList.add('has-scene');
+}).catch(() => study.classList.remove('has-scene'));
+syncRoute();
