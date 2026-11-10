@@ -3,33 +3,41 @@
 const projects = {
   mogumogu: {
     title:'もぐもぐマネジメント', category:'個人開発・開発中',
-    lead:'食品管理と野菜キャラクター育成を組み合わせた、個人開発のスマートフォンアプリです。食品を登録・管理し、使い切った実績がキャラクターの成長につながる体験を制作しています。',
+    lead:'家にある食品を登録し、期限や消費状況を管理するスマートフォンアプリです。食品を使い切った記録が、野菜キャラクターの経験値や成長につながります。食品管理を続けるきっかけとして、キャラクター育成を組み合わせて開発しています。',
     facts:[['制作形態','個人開発・開発中'],['担当','企画・プログラム・3D・UIなど制作全般'],['使用技術','Unity / C# / SQLite'],['動作確認','Android実機']],
     hero:'mogumogu-poster.webp', alt:'食品管理を楽しく継続するアプリ、もぐもぐマネジメントの実機紹介画面。',
     sections:[
+      ['使い方',['家にある食品と、その期限や確認予定日を登録します。','食品の一覧や通知を見て、何を使うか・確認するかを判断します。','食品を使い切ったらアプリに記録。その実績をキャラクターの経験値や成長につなげます。']],
       ['主な実装内容',['食品の登録・一覧・詳細・更新・消費完了・廃棄などの食品管理機能。','みまもり中の食品について、期限・確認予定日の前日と当日朝9時にまとめて通知するAndroid通知機能。','食品の消費実績と育成をつなぐ経験値・ユーザーレベル・ペットの成長の基盤。','性格に応じた顔Prefabの交換と、PNG連番による表情アニメーションに対応する構成。','日光浴広場、状態管理、ホラーイベント、ガチャの反動演出など、遊びにつながる機能の基盤。']],
       ['制作で重視していること','食品管理を続ける楽しさを主役にしています。キャラクターが食品を運ぶ演出や、実績に応じた成長を組み合わせ、管理の操作を単なる入力作業で終わらせないことを目指しています。'],
       ['実装状況について','アプリは現在開発中です。紹介動画には仮のUI、テスト用の数値、画面試作が含まれます。ガチャの抽選・景品獲得など、今後実装する機能もあり、完成済みの製品として紹介しているものではありません。']
     ],
     gallery:[['mogumogu-home.webp','育成キャラクターとホーム'],['mogumogu-management.webp','食品管理の実機画面'],['mogumogu-park.webp','日光浴広場の制作画面']],
-    credit:'本人による個人開発。紹介動画BGMはKevin MacLeod「Easy Lemon」（CC BY 4.0）。曲の著作権は作曲者に帰属します。'
+    credit:'朝倉による個人開発。紹介動画BGMはKevin MacLeod「Easy Lemon」（CC BY 4.0）。曲の著作権は作曲者に帰属します。'
   },
   aquarium:{
-    title:'アロワナ水槽アセット',category:'Unityアセット・共同制作',
-    lead:'Unity URP向けの水槽インテリアアセット。アロワナの存在感を大切にしながら、モデル・泳ぐ動き・水面やエアレーションの表現をUnityのシーンにまとめた共同制作作品です。',
-    facts:[['制作形態','共同制作'],['本人の担当','アロワナモデル / 水槽編集 / シェーダー調整'],['使用環境','Unity 2022.3.62f3 URP / Blender 4.5.5'],['モデル規模','アロワナ 約2,198 tris / 水槽 約5,703 tris']],
-    hero:'arowana-aquarium.webp',alt:'骨格付きアロワナと流木を配置した、Unity URP対応の水槽インテリア。',
-    sections:[['制作内容',['アロワナのモデリング、ボーン、泳ぎとUターンのアニメーション。','水槽の編集とシェーダー調整。水面の揺れはシェーダー、エアレーションはParticle Systemで表現。','レイアウト済みのPrefabとして、シーンに配置して使える構成。']],['制作分担','水槽本体の3DモデリングはHachi.S氏が担当。本人はアロワナモデル、水槽編集、シェーダー調整を担当しています。商品説明・クレジットに基づいて制作範囲を分けて掲載しています。']],
-    credit:'Aquarium 3D Modeling: Hachi.S（@meetymeety）。Arowana Model / Aquarium Editing / Shader Adjustment: 朝倉柊太。掲載仕様は作品の商品説明に基づきます。'
+    title:'アロワナの3Dモデル',category:'3Dモデル・共同制作',
+    lead:'朝倉がモデリングとアニメーションを制作したアロワナです。魚体や鱗の見え方に加え、ゆったり泳ぐ動きとUターンを制作し、共同制作の水槽に配置しています。',
+    facts:[['朝倉の担当','アロワナのモデリング・ボーン・アニメーション / 水槽編集・シェーダー調整'],['制作形態','先輩デザイナーとの共同制作'],['モデル仕様','アロワナ 約2,198 tris / テクスチャ最大1,024 px'],['使用環境','Blender 4.5.5 / Unity 2022.3.62f3 URP']],
+    hero:'arowana-model.webp',alt:'朝倉が制作したアロワナ。鱗やひれの形が分かる魚体のクローズアップ。',
+    videos:[
+      {file:'arowana-showcase',label:'水槽内で泳ぐアロワナ',duration:'38秒',description:'色と照明を変えた魚体の見え方、泳ぎとUターン、最後にアロワナの置物を紹介します。'},
+      {file:'arowana-swim',label:'泳ぎのアニメーション',duration:'39秒',description:'Blenderで泳ぎのアニメーションとボーン、アニメーションカーブを確認している制作画面です。'},
+      {file:'arowana-turn',label:'Uターンのアニメーション',duration:'19秒',description:'水槽端で方向転換する動きと、ボーンの動作を確認している制作画面です。'},
+      {file:'arowana-tail',label:'尾びれの動き',duration:'15秒',description:'尾びれのボーンとアニメーションを確認している制作画面です。'}
+    ],
+    sections:[['アロワナの制作',['魚体・ひれのモデリングと、動きを付けるためのボーンを制作。','泳ぎとUターンのアニメーションを制作。Blenderで動きを確認し、Unityの水槽内に配置。','水槽の編集とシェーダー調整も担当。水面の揺れにはシェーダー、エアレーションにはParticle Systemを使用。']],['共同制作の経緯と分担','バーチャル万博で共に制作していた先輩デザイナーのHachi.S氏と、隙間時間を使って制作しました。水槽本体の3Dモデリングは、朝倉が伝えた要件に沿ってHachi.S氏が担当。朝倉はアロワナの制作と、水槽編集・シェーダー調整を担当しました。'],['Unityでの構成','水槽・流木・底砂・照明を含めたレイアウトをPrefabにまとめ、Unity URPのシーンに配置して使える構成です。水槽は約5,703 tris。2026年9月18日の更新で、アロワナの置物を追加し、テクスチャを更新しています。']],
+    gallery:[['arowana-wireframe.webp','朝倉制作：アロワナのワイヤーフレームとボーン（約2,198 tris）'],['arowana-gold.webp','朝倉制作：金色の魚体と鱗の表現']],
+    credit:'アロワナ制作・水槽編集・シェーダー調整：朝倉柊太。水槽本体の3Dモデリング：Hachi.S（バーチャル万博で共に制作した先輩デザイナー）。'
   },
   information:{
     title:'バーチャル万博 案内所',category:'XR空間・チーム制作',
     lead:'テンプレートの内観ルームを使い、近未来をテーマにした案内所をチームで制作。案内情報や地図を3D空間に配置し、来場者が目的の場所を探す体験を支える空間にしました。',
     facts:[['制作期間','2か月（2025年の作品記録）'],['制作人数','3名'],['主な担当','小物モデリング、3D文字、地図ジオラマ等'],['使用技術','Unity / Blender / GIMP']],
     hero:'expo-information.webp',alt:'バーチャル万博の案内所に設置された地図のジオラマと案内パネル。',
-    sections:[['担当・制作内容',['先輩デザイナーと、必要に応じて案内所の小物をモデリング。','「ミニシアター」「QuizKnock」などの3D文字や、地図を立体化したジオラマを制作。','出展企業一覧・パビリオン一覧などを、案内所の空間と組み合わせて構成。']],['チームでの分担','テンプレートをベースにしたチーム制作です。主にUnityエンジニアがギミックを実装し、デザイナーと本人が必要な小物を制作しました。画面に写る全てのアセットやギミックを、本人が単独で制作したものではありません。']],
+    sections:[['担当・制作内容',['先輩デザイナーと、必要に応じて案内所の小物をモデリング。','「ミニシアター」「QuizKnock」などの3D文字や、地図を立体化したジオラマを制作。','出展企業一覧・パビリオン一覧などを、案内所の空間と組み合わせて構成。']],['チームでの分担','テンプレートをベースにしたチーム制作です。主にUnityエンジニアがギミックを実装し、デザイナーと朝倉が必要な小物を制作しました。画面に写る全てのアセットやギミックを、朝倉が単独で制作したものではありません。']],
     gallery:[['expo-theatre.webp','案内所のサブルーム・シアター']],
-    credit:'本人提供の2025年9月版作品集より。バーチャル万博関連のチーム制作。各ブランド・キャラクター等の権利は各権利者に帰属します。'
+    credit:'朝倉提供の2025年9月版作品集より。バーチャル万博関連のチーム制作。各ブランド・キャラクター等の権利は各権利者に帰属します。'
   },
   fashion:{
     title:'EXPOアリーナ ファッションショー',category:'イベント会場・チーム制作',
@@ -38,7 +46,7 @@ const projects = {
     hero:'expo-fashion.webp',alt:'ライト演出とアバターが集まる、EXPOアリーナのファッションショー。',
     sections:[['制作したもの',['イベント専用会場として、既存テンプレートをベースに空間を改修。','立体文字看板、会場の設置物、アバターが持つライトやリュックサックなどの小物。','チームでイベントの演出・参加導線を調整。']],['制作から運用で得たこと','アニメーションやギミック、参加人数が増えると、一部端末では動作が重くなりました。この経験を受け、次のイベントでは軽量化と同時参加人数の調整を重視。見た目に加え、実際に遊べる状態を考えるきっかけになりました。']],
     gallery:[['expo-fashion-assets.webp','立体看板、会場小物、アバター向けアイテムの制作記録']],
-    credit:'本人提供の作品集より。2名でのチーム制作。既存の会場テンプレートを使用。掲載画像に含まれるブランド・アバター等の権利は各権利者に帰属します。'
+    credit:'朝倉提供の作品集より。2名でのチーム制作。既存の会場テンプレートを使用。掲載画像に含まれるブランド・アバター等の権利は各権利者に帰属します。'
   },
   festival:{
     title:'EXPOアリーナ 盆踊り大会',category:'イベント会場・チーム制作',
@@ -47,21 +55,24 @@ const projects = {
     hero:'expo-festival.webp',alt:'夕焼けの盆踊り会場に、提灯、やぐら、屋台が並んでいる。',
     sections:[['制作したもの',['テンプレートからの会場改修、提灯、屋台とやぐらの配置。','和太鼓と、わたあめ・フランクフルト・焼きトウモロコシなどの食品小物。','同じ盆踊り企画で、大屋根リングに関連する会場制作も経験。']],['制作上の工夫','短い制作期間で既存空間を活用し、祭りの雰囲気が伝わる小物を制作。イベントでの端末負荷を踏まえ、見た目だけでなく運用時の安定性も考えるようになりました。']],
     gallery:[['expo-festival-overview.webp','盆踊り会場の全体構成'],['expo-drum.webp','和太鼓とやぐら'],['expo-food-props.webp','アバターが持つ食品小物'],['expo-ring.webp','大屋根リングでの盆踊り会場の記録']],
-    credit:'本人提供の作品集より。2名でのチーム制作。既存テンプレートを活用。画像内の全ての構成要素を本人が単独で制作したものではありません。'
+    credit:'朝倉提供の作品集より。2名でのチーム制作。既存テンプレートを活用。画像内の全ての構成要素を朝倉が単独で制作したものではありません。'
   },
   quiz:{
     title:'QuizKnock クイズイベント AR版',category:'ARコンテンツ・チーム制作',
-    lead:'VRとARの両方を使い、各地のクイズを解いてキーワードを集めるイベント。チーム内で担当を分け、本人はAR版のコンテンツ制作を担当しました。',
-    facts:[['制作期間','2週間'],['制作人数','2名'],['本人の担当','AR版コンテンツ制作'],['使用技術','Unity / Blender / GIMP']],
+    lead:'VRとARの両方を使い、各地のクイズを解いてキーワードを集めるイベント。チーム内で担当を分け、朝倉はAR版のコンテンツ制作を担当しました。',
+    facts:[['制作期間','2週間'],['制作人数','2名'],['朝倉の担当','AR版コンテンツ制作'],['使用技術','Unity / Blender / GIMP']],
     hero:'quiz-ar.webp',alt:'QuizKnockのARクイズで使う問題・正解・キーワード案内の画面。',
-    sections:[['体験の構成','ARを開始するとガイド画像を表示し、現地でスマートフォンをかざす場所を案内。問題に正解するとキーワードを獲得し、VR側とあわせて集める仕組みです。'],['制作分担','UnityエンジニアがVR・ARの画面レイアウトを設計。マルチデバイス対応を考慮して分担し、本人がAR版の制作を担当しました。VR側は関連するチーム制作の記録として掲載しています。']],
+    sections:[['体験の構成','ARを開始するとガイド画像を表示し、現地でスマートフォンをかざす場所を案内。問題に正解するとキーワードを獲得し、VR側とあわせて集める仕組みです。'],['制作分担','UnityエンジニアがVR・ARの画面レイアウトを設計。マルチデバイス対応を考慮して分担し、朝倉がAR版の制作を担当しました。VR側は関連するチーム制作の記録として掲載しています。']],
     gallery:[['quiz-vr.webp','チームで制作したVR版の関連画面']],
-    credit:'本人提供の作品集より。クイズやブランド・キャラクターの権利は各権利者に帰属します。イベント全体を本人が単独で企画・実装したものではありません。'
+    credit:'朝倉提供の作品集より。クイズやブランド・キャラクターの権利は各権利者に帰属します。イベント全体を朝倉が単独で企画・実装したものではありません。'
   }
 };
 
 
 const imageDimensions = {
+  "arowana-model.webp": [662,506],
+  "arowana-gold.webp": [476,296],
+  "arowana-wireframe.webp": [1024,433],
   "arowana-aquarium.webp": [
     1024,
     576
@@ -166,6 +177,13 @@ function projectImage(file, alt, className = '', lazy = false) {
   const [width, height] = imageDimensions[file];
   return '<img class="' + className + '" src="assets/images/' + file + '" width="' + width + '" height="' + height + '" alt="' + escapeHTML(alt) + '"' + (lazy ? ' loading="lazy"' : '') + '>';
 }
+function projectVideos(videos) {
+  if (!videos?.length) return '';
+  return '<section class="detail-media" aria-labelledby="detail-media-title"><h3 id="detail-media-title">映像で見る</h3><p class="media-note">完成映像とBlenderの制作画面です。すべて音声なしで、再生ボタンからご覧いただけます。</p>' + videos.map(v => '<details class="demo-disclosure"><summary><span>' + escapeHTML(v.label) + '</span><span class="demo-duration">' + escapeHTML(v.duration) + '</span><span class="disclosure-icon" aria-hidden="true">＋</span></summary><div class="demo-body"><video controls playsinline preload="none" poster="assets/images/' + v.file + '.webp" aria-label="' + escapeHTML(v.label + '、' + v.duration + '、音声なし') + '"><source src="assets/video/' + v.file + '.mp4" type="video/mp4">お使いのブラウザーでは動画を再生できません。<a href="assets/video/' + v.file + '.mp4">MP4を開く</a></video><p class="media-note">' + escapeHTML(v.description) + '</p></div></details>').join('') + '</section>';
+}
+function pauseProjectVideos() {
+  content.querySelectorAll('video').forEach(video => video.pause());
+}
 function routeProject() {
   const key = location.hash.replace('#project-', '');
   return location.hash.startsWith('#project-') && Object.hasOwn(projects, key) ? key : null;
@@ -180,6 +198,7 @@ function renderProject(key, historyMode = 'push') {
     const state = { portfolioProject: wasOpen ? Boolean(history.state?.portfolioProject) : historyMode === 'push', returnHash };
     history[historyMode === 'replace' || wasOpen ? 'replaceState' : 'pushState'](state, '', '#project-' + key);
   }
+  pauseProjectVideos();
   activeProject = key;
   dialog.querySelector('.share-url')?.remove();
   clearTimeout(copyReset);
@@ -187,7 +206,13 @@ function renderProject(key, historyMode = 'push') {
   document.querySelector('#copy-status').textContent = '';
   const index = projectKeys.indexOf(key);
   dialog.querySelector('.dialog-index').textContent = String(index + 1).padStart(2, '0') + ' / 06';
-  content.innerHTML = '<article class="project-detail"><p class="project-category">' + escapeHTML(p.category) + '</p><h2 id="dialog-title">' + escapeHTML(p.title) + '</h2><p class="project-lead">' + escapeHTML(p.lead) + '</p><dl>' + p.facts.map(([a,b]) => '<div><dt>' + escapeHTML(a) + '</dt><dd>' + escapeHTML(b) + '</dd></div>').join('') + '</dl><a class="detail-hero-link" href="assets/images/' + p.hero + '" target="_blank" rel="noopener noreferrer" aria-label="作品画像を大きく開く">' + projectImage(p.hero, p.alt, 'detail-hero') + '<span>画像を大きく表示 ↗</span></a>' + p.sections.map(([title,body]) => '<section class="detail-section"><h3>' + escapeHTML(title) + '</h3>' + (Array.isArray(body) ? '<ul>' + body.map(t => '<li>' + escapeHTML(t) + '</li>').join('') + '</ul>' : '<p>' + escapeHTML(body) + '</p>') + '</section>').join('') + (p.gallery ? '<div class="detail-gallery">' + p.gallery.map(([file,label]) => '<figure><a href="assets/images/' + file + '" target="_blank" rel="noopener noreferrer" aria-label="' + escapeHTML(label) + 'を大きく開く">' + projectImage(file, label, '', true) + '</a><figcaption>' + escapeHTML(label) + '</figcaption></figure>').join('') + '</div>' : '') + (p.link ? '<a class="text-link detail-link" href="' + p.link[0] + '" target="_blank" rel="noopener noreferrer">' + escapeHTML(p.link[1]) + ' ↗</a>' : '') + '<p class="detail-credit">' + escapeHTML(p.credit) + '</p></article>';
+  content.innerHTML = '<article class="project-detail"><p class="project-category">' + escapeHTML(p.category) + '</p><h2 id="dialog-title">' + escapeHTML(p.title) + '</h2><p class="project-lead">' + escapeHTML(p.lead) + '</p><dl>' + p.facts.map(([a,b]) => '<div><dt>' + escapeHTML(a) + '</dt><dd>' + escapeHTML(b) + '</dd></div>').join('') + '</dl><a class="detail-hero-link" href="assets/images/' + p.hero + '" target="_blank" rel="noopener noreferrer" aria-label="作品画像を大きく開く">' + projectImage(p.hero, p.alt, 'detail-hero') + '<span>画像を大きく表示 ↗</span></a>' + p.sections.map(([title,body]) => '<section class="detail-section"><h3>' + escapeHTML(title) + '</h3>' + (Array.isArray(body) ? '<ul>' + body.map(t => '<li>' + escapeHTML(t) + '</li>').join('') + '</ul>' : '<p>' + escapeHTML(body) + '</p>') + '</section>').join('') + projectVideos(p.videos) + (p.gallery ? '<div class="detail-gallery">' + p.gallery.map(([file,label]) => '<figure><a href="assets/images/' + file + '" target="_blank" rel="noopener noreferrer" aria-label="' + escapeHTML(label) + 'を大きく開く">' + projectImage(file, label, '', true) + '</a><figcaption>' + escapeHTML(label) + '</figcaption></figure>').join('') + '</div>' : '') + (p.link ? '<a class="text-link detail-link" href="' + p.link[0] + '" target="_blank" rel="noopener noreferrer">' + escapeHTML(p.link[1]) + ' ↗</a>' : '') + '<p class="detail-credit">' + escapeHTML(p.credit) + '</p></article>';
+  content.querySelectorAll('details.demo-disclosure').forEach(details => details.addEventListener('toggle', () => {
+    if (!details.open) details.querySelector('video')?.pause();
+  }));
+  content.querySelectorAll('video').forEach(video => video.addEventListener('play', () => {
+    document.querySelectorAll('video').forEach(other => { if (other !== video) other.pause(); });
+  }));
   nextButton.innerHTML = '次の作品：' + escapeHTML(projects[projectKeys[(index + 1) % projectKeys.length]].title) + ' <span aria-hidden="true">→</span>';
   if (!wasOpen) {
     document.querySelector('video')?.pause();
@@ -227,6 +252,7 @@ dialog.addEventListener('click', event => {
   backdropDown = false;
 });
 dialog.addEventListener('close', () => {
+  pauseProjectVideos();
   const restore = previousFocus === document.body ? document.querySelector('[data-project="' + activeProject + '"]') : previousFocus;
   activeProject = null;
   document.body.classList.remove('dialog-open');
