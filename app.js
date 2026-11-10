@@ -330,7 +330,7 @@ if ('IntersectionObserver' in window) {
   };
   const groupLinks = document.querySelectorAll('[data-group-link]');
   const sectionVisibility = new Map();
-  const sectionObserver = new IntersectionObserver(entries => {
+  function updateCurrentSection(entries) {
     entries.forEach(entry => sectionVisibility.set(entry.target.id, entry.isIntersecting));
     const currentSection = [...sectionIds].reverse().find(id => sectionVisibility.get(id));
     const currentHeader = headerSection[currentSection];
@@ -343,10 +343,28 @@ if ('IntersectionObserver' in window) {
       if (currentGroup && a.hash === '#' + currentGroup) a.setAttribute('aria-current', 'location');
       else a.removeAttribute('aria-current');
     });
-  }, { rootMargin: '-15% 0px -80% 0px', threshold: 0 });
-  sectionIds.forEach(id => {
-    const section = document.getElementById(id);
-    if (section) sectionObserver.observe(section);
+  }
+  let sectionObserver;
+  let resizeFrame;
+  function observeSections() {
+    sectionObserver?.disconnect();
+    sectionVisibility.clear();
+    // A narrow band just beneath the header follows the reading position.
+    // Pixel margins also remain correct on wide and short viewports.
+    const top = Math.min(140, Math.round(window.innerHeight * .18));
+    const bottom = Math.max(0, window.innerHeight - top - 16);
+    sectionObserver = new IntersectionObserver(updateCurrentSection, {
+      rootMargin: '-' + top + 'px 0px -' + bottom + 'px 0px', threshold: 0,
+    });
+    sectionIds.forEach(id => {
+      const section = document.getElementById(id);
+      if (section) sectionObserver.observe(section);
+    });
+  }
+  window.addEventListener('resize', () => {
+    cancelAnimationFrame(resizeFrame);
+    resizeFrame = requestAnimationFrame(observeSections);
   });
+  observeSections();
 }
 syncRoute();
