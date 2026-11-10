@@ -134,9 +134,30 @@ const closeButton = dialog.querySelector('.dialog-close');
 const copyButton = dialog.querySelector('.copy-project');
 const nextButton = dialog.querySelector('.dialog-next button');
 const projectKeys = Object.keys(projects);
+const demoDisclosure = document.querySelector('details.demo-disclosure#demo');
 let previousFocus = null;
 let activeProject = null;
 let copyReset;
+let demoScrollFrame = 0;
+
+demoDisclosure?.addEventListener('toggle', () => {
+  if (!demoDisclosure.open) demoDisclosure.querySelector('video')?.pause();
+});
+document.querySelectorAll('a[href="#demo"]').forEach(link => link.addEventListener('click', () => {
+  // Open before the native anchor navigation, including a repeated #demo click.
+  if (demoDisclosure) demoDisclosure.open = true;
+}));
+
+function revealDemo() {
+  if (!demoDisclosure) return;
+  demoDisclosure.open = true;
+  cancelAnimationFrame(demoScrollFrame);
+  demoScrollFrame = requestAnimationFrame(() => {
+    demoScrollFrame = 0;
+    if (location.hash !== '#demo') return;
+    demoDisclosure.scrollIntoView({ behavior: quiet ? 'auto' : 'smooth', block: 'start' });
+  });
+}
 
 function escapeHTML(text) {
   return String(text).replace(/[&<>"']/g, c => ({'&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'}[c]));
@@ -174,13 +195,16 @@ function renderProject(key, historyMode = 'push') {
     document.body.classList.add('dialog-open');
   }
   dialog.scrollTop = 0;
-  closeButton.focus({ preventScroll: true });
+  const title = content.querySelector('#dialog-title');
+  title.tabIndex = -1;
+  title.focus({ preventScroll: true });
 }
 function syncRoute() {
   const key = routeProject();
   if (key) {
     if (key !== activeProject || !dialog.open) renderProject(key, 'none');
   } else if (dialog.open) dialog.close();
+  if (location.hash === '#demo') revealDemo();
 }
 function requestClose() {
   if (history.state?.portfolioProject) history.back();
@@ -297,12 +321,12 @@ if ('IntersectionObserver' in window) {
     entranceAnimations.add(animation);
     animation.finished.catch(() => {}).finally(() => entranceAnimations.delete(animation));
   }), { threshold: .08, rootMargin: '0px 0px -32px 0px' });
-  document.querySelectorAll('.section-heading, .work-group-heading, .work-card, .about-layout, .skill-row, .timeline > li').forEach(el => entrances.observe(el));
+  document.querySelectorAll('.section-heading, .work-group-heading, .work-card, .project-row, .about-layout, .skill-row, .timeline > li').forEach(el => entrances.observe(el));
   const groupIds = ['app-projects', 'asset-projects', 'xr-projects'];
   const sectionIds = ['works', ...groupIds, 'about', 'skills', 'experience', 'contact'];
   const headerSection = {
     works: 'works', 'app-projects': 'works', 'asset-projects': 'works', 'xr-projects': 'works',
-    about: 'about', skills: 'about', experience: 'experience', contact: 'contact',
+    about: 'about', skills: 'skills', experience: 'experience', contact: 'contact',
   };
   const groupLinks = document.querySelectorAll('[data-group-link]');
   const sectionVisibility = new Map();
@@ -319,7 +343,7 @@ if ('IntersectionObserver' in window) {
       if (currentGroup && a.hash === '#' + currentGroup) a.setAttribute('aria-current', 'location');
       else a.removeAttribute('aria-current');
     });
-  }, { rootMargin: '-18% 0px -35% 0px', threshold: 0 });
+  }, { rootMargin: '-15% 0px -80% 0px', threshold: 0 });
   sectionIds.forEach(id => {
     const section = document.getElementById(id);
     if (section) sectionObserver.observe(section);
