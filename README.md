@@ -14,7 +14,7 @@ GitHubの Settings → Pages で、Source を「Deploy from a branch」、Branch
 
 ## 内容
 
-- もぐもぐマネジメント：個人開発・開発中。約1分42秒の紹介動画と実装状況
+- もぐもぐマネジメント：個人開発・開発中。約2分25秒の紹介動画。食品管理／育成の2つのモード、操作の流れ、実装状況
 - アロワナの3Dモデル：朝倉の魚体・アニメーションを中心に紹介。先輩デザイナーと制作した水槽との分担、画像、4本の動画を掲載
 - バーチャル万博の案内所、ファッションショー、盆踊り大会、ARクイズ：チーム制作の担当詳細と画像
 - プロフィール、スキル、職務経験、学歴・資格、連絡先
@@ -36,8 +36,8 @@ GitHubの Settings → Pages で、Source を「Deploy from a branch」、Branch
 | `app.js` | 各作品の詳細、ダイアログ、動画の開閉、目次の現在位置、モバイルメニュー |
 | `styles.css` | 色・余白・文字サイズ・レスポンシブ表示 |
 | `assets/images/` | 掲載用に抽出・軽量化した作品画像 |
-| `assets/video/mogumogu-portfolio.mp4` | BGM差し替え済みの紹介動画 |
-| `assets/video/mogumogu-ja.vtt` | 動画内容の日本語説明字幕 |
+| `assets/video/mogumogu-introduction-20261111.mp4` | 2026年11月提供の改訂版紹介動画（BGMを保持） |
+| `assets/video/mogumogu-introduction-ja.vtt` | 動画内容の日本語説明字幕 |
 | `CREDITS.md` | 作品の出典と共同制作者、BGMの利用条件 |
 
 連絡先メールは朝倉の希望により掲載しています。住所・電話番号・生年月日、履歴書・職務経歴書のPDF原本はリポジトリに含めていません。
