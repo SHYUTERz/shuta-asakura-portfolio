@@ -64,6 +64,7 @@ const projects = {
       ['デザイン制作','Blenderを使った3D制作と、GIMPを使った画像制作を担当した。'],
       ['チームでの開発','デザインチームと開発チームが連携して制作。アプリ開発にはUnity / C#とGitが使用された。']
     ],
+    videoEmbed:{label:'バーチャルミーティング 大阪オフィス 紹介動画',duration:'約22分6秒・無音版',clock:'22:06',topline:'バーチャルミーティングの紹介',src:'https://drive.google.com/file/d/11FVB5NxcZnDzP3_hlN-mbp-PKZHYGgF5/preview',watchUrl:'https://drive.google.com/file/d/11FVB5NxcZnDzP3_hlN-mbp-PKZHYGgF5/view',description:'社内チーム制作のバーチャルミーティングアプリの紹介映像。朝倉は3D・画像デザインを担当し、アプリの開発は開発チームが担当した。'},
     credit:'2024年、VRIA研修終了後の社内チーム制作。3D・画像デザイン：朝倉柊太。アプリ開発：開発チーム（Unity / C# / Git）。'
   },
   information:{
@@ -239,7 +240,7 @@ function projectVideos(videos) {
 }
 function projectEmbeddedVideo(video) {
   if (!video) return '';
-  return '<section class="detail-media" aria-label="紹介動画"><h3>紹介動画</h3><details class="demo-disclosure"><summary><span>' + escapeHTML(video.label) + '</span><span class="demo-duration">' + escapeHTML(video.duration) + '</span><span class="disclosure-icon" aria-hidden="true">＋</span></summary><div class="demo-body"><p class="demo-description">' + escapeHTML(video.description) + '</p><div class="media-topline"><span>販売管理システムの紹介</span><span>08:23</span></div><iframe class="embedded-video" data-src="' + escapeHTML(video.src) + '" title="' + escapeHTML(video.label) + '" loading="lazy" allow="fullscreen; picture-in-picture" allowfullscreen></iframe><p class="media-note">Google Driveの軽量版を埋め込み表示。再生できない場合は <a href="' + escapeHTML(video.watchUrl) + '" target="_blank" rel="noopener noreferrer">Google Driveで動画を開く</a>。</p></div></details></section>';
+  return '<section class="detail-media" aria-label="紹介動画"><h3>紹介動画</h3><details class="demo-disclosure"><summary><span>' + escapeHTML(video.label) + '</span><span class="demo-duration">' + escapeHTML(video.duration) + '</span><span class="disclosure-icon" aria-hidden="true">＋</span></summary><div class="demo-body"><p class="demo-description">' + escapeHTML(video.description) + '</p><div class="media-topline"><span>' + escapeHTML(video.topline || video.label) + '</span><span>' + escapeHTML(video.clock || '') + '</span></div><iframe class="embedded-video" data-src="' + escapeHTML(video.src) + '" title="' + escapeHTML(video.label) + '" loading="lazy" allow="fullscreen; picture-in-picture" allowfullscreen></iframe><p class="media-note">Google Driveの軽量版を埋め込み表示。再生できない場合は <a href="' + escapeHTML(video.watchUrl) + '" target="_blank" rel="noopener noreferrer">Google Driveで動画を開く</a>。</p></div></details></section>';
 }
 function syncEmbeddedVideo(details) {
   const iframe = details.querySelector('iframe[data-src]');
@@ -251,8 +252,8 @@ function syncEmbeddedVideo(details) {
     iframe.removeAttribute('src');
   }
 }
-const salesDemo = document.querySelector('#sales-demo');
-salesDemo?.addEventListener('toggle', () => syncEmbeddedVideo(salesDemo));
+const cardDemoDisclosures = document.querySelectorAll('#sales-demo, #meeting-demo');
+cardDemoDisclosures.forEach(details => details.addEventListener('toggle', () => syncEmbeddedVideo(details)));
 function projectReferences(references) {
   if (!references?.length) return '';
   return '<section class="detail-section"><h3>大阪・関西万博公式の紹介</h3><ul>' + references.map(reference => '<li><a class="text-link" href="' + escapeHTML(reference.url) + '" target="_blank" rel="noopener noreferrer">' + escapeHTML(reference.label) + ' <span aria-hidden="true">↗</span></a></li>').join('') + '</ul></section>';
@@ -276,7 +277,7 @@ function renderProject(key, historyMode = 'push') {
     history[historyMode === 'replace' || wasOpen ? 'replaceState' : 'pushState'](state, '', '#project-' + key);
   }
   pauseProjectVideos();
-  if (salesDemo?.open) salesDemo.open = false;
+  cardDemoDisclosures.forEach(details => { if (details.open) details.open = false; });
   activeProject = key;
   dialog.querySelector('.share-url')?.remove();
   clearTimeout(copyReset);
