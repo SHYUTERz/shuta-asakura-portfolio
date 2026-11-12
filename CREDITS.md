@@ -65,8 +65,8 @@ Licensed under Creative Commons: By Attribution 4.0 License
 
 ## SalesManagement21 販売管理システム
 
-大阪情報コンピュータ専門学校のシステム開発演習における6名の共同制作。機能説明書、作品紹介資料、C#プロジェクトを確認。Windows Forms / .NET Framework 4.6.1 / Entity Framework 6.4.4 / SQL Server LocalDBの構成。個人の詳細担当は確認できないため、すべての機能を朝倉の単独制作とは記載していません。画像は当時のトップメニュー。アプリ本体やデータベースは公開していません。
+2022〜2023年、専門学校のシステム開発演習で制作した6名の共同作品。チームリーダー：朝倉柊太。Windows Forms / .NET Framework 4.6.1 / Entity Framework 6.4.4 / SQL Server LocalDBを使用。掲載画像は制作当時のトップメニューです。
 
 ## バーチャルミーティング 大阪オフィス
 
-朝倉の主な担当はBlender / GIMPを用いたデザイン。Unity / C# / Gitによる開発は別のチームが担当。機能面は確認できていないため推測で記載しません。共有資料に動画の無用な再配布を控える指示があるため、紹介動画は公開しません。SVG画像は実画面ではない紹介用タイトルカードです。
+2024年制作。デザイン：朝倉柊太（Blender / GIMP）。Unity / C# / Gitを使用したアプリ開発は開発チームが担当。掲載画像は作品紹介用のタイトルカードです。
