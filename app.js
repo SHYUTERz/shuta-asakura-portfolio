@@ -13,6 +13,7 @@ const projects = {
       ['実装している基盤',['Unity / C#で画面・キャラクターの動きと食品管理を制作し、SQLiteでデータを管理。企画・プログラム・3D・UIまで朝倉が担当している。','みまもり中の食品について、期限・確認予定日の前日と当日朝9時にまとめて通知するAndroid通知機能、消費実績と育成をつなぐ経験値・ユーザーレベルの基盤を実装。これらは今回の動画での紹介範囲には含めていない。','性格に応じた顔Prefabの交換と、PNG連番による表情アニメーションに対応する構成。']],
       ['制作中の部分','アプリは開発中で、映像には仮のUIやテストデータを含む。カブ・玉ねぎなど他の野菜キャラクターは制作中で、選べる種類を増やす予定である。日光浴広場のおもちゃ遊びの拡充、アニメーションやデザインも制作・調整を進めている。']
     ],
+    videoLocal:{label:'もぐもぐマネジメントの紹介動画',duration:'2分25秒・紹介映像',clock:'02:25',file:'mogumogu-introduction-20261111',poster:'mogumogu-overview.webp',captions:'mogumogu-introduction-ja.vtt',description:'食品の登録・確認・編集・消費・廃棄と、キャラクターとのふれあいを紹介する映像。',note:'開発中の画面とテストデータを一部含む。BGMあり。操作説明は映像内の文字と日本語字幕で確認できる。'},
     gallery:[['mogumogu-registration.webp','食品を続けて入力し、まとめて登録する画面'],['mogumogu-inventory.webp','期限や状態を確認できる食品一覧'],['mogumogu-playground.webp','移動・呼びかけの基盤を実装した日光浴広場（UIは調整中）']],
     credit:'朝倉による個人開発。2026年11月提供の紹介映像と掲載用の画面を使用。BGMはKevin MacLeod「Easy Lemon」（CC BY 4.0）。曲の著作権は作曲者に帰属する。'
   },
@@ -208,9 +209,6 @@ let activeProject = null;
 let copyReset;
 let demoScrollFrame = 0;
 
-demoDisclosure?.addEventListener('toggle', () => {
-  if (!demoDisclosure.open) demoDisclosure.querySelector('video')?.pause();
-});
 document.querySelectorAll('a[href="#demo"]').forEach(link => link.addEventListener('click', () => {
   // Open before the native anchor navigation, including a repeated #demo click.
   if (demoDisclosure) demoDisclosure.open = true;
@@ -234,6 +232,11 @@ function projectImage(file, alt, className = '', lazy = false) {
   const [width, height] = imageDimensions[file];
   return '<img class="' + className + '" src="assets/images/' + file + '" width="' + width + '" height="' + height + '" alt="' + escapeHTML(alt) + '"' + (lazy ? ' loading="lazy"' : '') + '>';
 }
+function projectLocalVideo(video) {
+  if (!video) return '';
+  const source = 'assets/video/' + video.file + '.mp4';
+  return '<section class="detail-media" aria-label="紹介動画"><h3>紹介動画</h3><details class="demo-disclosure"><summary><span>紹介動画を見る</span><span class="demo-duration">' + escapeHTML(video.duration) + '</span><span class="disclosure-icon" aria-hidden="true">＋</span></summary><div class="demo-body"><p class="demo-description">' + escapeHTML(video.description) + '</p><div class="media-topline"><span>' + escapeHTML(video.label) + '</span><span>' + escapeHTML(video.clock) + '</span></div><video controls playsinline preload="none" poster="assets/images/' + escapeHTML(video.poster) + '" aria-label="' + escapeHTML(video.label) + '"><source src="' + escapeHTML(source) + '" type="video/mp4">' + (video.captions ? '<track kind="captions" src="assets/video/' + escapeHTML(video.captions) + '" srclang="ja" label="日本語の内容説明">' : '') + 'お使いのブラウザーでは動画を再生できません。<a href="' + escapeHTML(source) + '">MP4を開く</a></video><p class="media-note">' + escapeHTML(video.note) + '</p></div></details></section>';
+}
 function projectVideos(videos) {
   if (!videos?.length) return '';
   return '<section class="detail-media" aria-labelledby="detail-media-title"><h3 id="detail-media-title">映像で見る</h3><p class="media-note">完成映像とBlenderの制作画面です。すべて音声なしで、再生ボタンからご覧いただけます。</p>' + videos.map(v => '<details class="demo-disclosure"><summary><span>' + escapeHTML(v.label) + '</span><span class="demo-duration">' + escapeHTML(v.duration) + '</span><span class="disclosure-icon" aria-hidden="true">＋</span></summary><div class="demo-body"><video controls playsinline preload="none" poster="assets/images/' + v.file + '.webp" aria-label="' + escapeHTML(v.label + '、' + v.duration + '、音声なし') + '"><source src="assets/video/' + v.file + '.mp4" type="video/mp4">お使いのブラウザーでは動画を再生できません。<a href="assets/video/' + v.file + '.mp4">MP4を開く</a></video><p class="media-note">' + escapeHTML(v.description) + '</p></div></details>').join('') + '</section>';
@@ -252,8 +255,14 @@ function syncEmbeddedVideo(details) {
     iframe.removeAttribute('src');
   }
 }
-const cardDemoDisclosures = document.querySelectorAll('#sales-demo, #meeting-demo');
-cardDemoDisclosures.forEach(details => details.addEventListener('toggle', () => syncEmbeddedVideo(details)));
+const cardDemoDisclosures = document.querySelectorAll('#demo, #sales-demo, #aquarium-demo, #meeting-demo');
+cardDemoDisclosures.forEach(details => details.addEventListener('toggle', () => {
+  if (!details.open) details.querySelector('video')?.pause();
+  if (details.open) {
+    cardDemoDisclosures.forEach(other => { if (other !== details && other.open) other.open = false; });
+  }
+  syncEmbeddedVideo(details);
+}));
 function projectReferences(references) {
   if (!references?.length) return '';
   return '<section class="detail-section"><h3>大阪・関西万博公式の紹介</h3><ul>' + references.map(reference => '<li><a class="text-link" href="' + escapeHTML(reference.url) + '" target="_blank" rel="noopener noreferrer">' + escapeHTML(reference.label) + ' <span aria-hidden="true">↗</span></a></li>').join('') + '</ul></section>';
@@ -277,6 +286,7 @@ function renderProject(key, historyMode = 'push') {
     history[historyMode === 'replace' || wasOpen ? 'replaceState' : 'pushState'](state, '', '#project-' + key);
   }
   pauseProjectVideos();
+  document.querySelectorAll('.work-card video').forEach(video => video.pause());
   cardDemoDisclosures.forEach(details => { if (details.open) details.open = false; });
   activeProject = key;
   dialog.querySelector('.share-url')?.remove();
@@ -285,7 +295,7 @@ function renderProject(key, historyMode = 'push') {
   document.querySelector('#copy-status').textContent = '';
   const index = projectKeys.indexOf(key);
   dialog.querySelector('.dialog-index').textContent = String(index + 1).padStart(2, '0') + ' / ' + String(projectKeys.length).padStart(2, '0');
-  content.innerHTML = '<article class="project-detail"><p class="project-category">' + escapeHTML(p.category) + '</p><h2 id="dialog-title">' + escapeHTML(p.title) + '</h2><p class="project-lead">' + escapeHTML(p.lead) + '</p><dl>' + p.facts.map(([a,b]) => '<div><dt>' + escapeHTML(a) + '</dt><dd>' + escapeHTML(b) + '</dd></div>').join('') + '</dl><a class="detail-hero-link" href="assets/images/' + p.hero + '" target="_blank" rel="noopener noreferrer" aria-label="作品画像を大きく開く">' + projectImage(p.hero, p.alt, 'detail-hero') + '<span>画像を大きく表示 ↗</span></a>' + p.sections.map(([title,body]) => '<section class="detail-section"><h3>' + escapeHTML(title) + '</h3>' + (Array.isArray(body) ? '<ul>' + body.map(t => '<li>' + escapeHTML(t) + '</li>').join('') + '</ul>' : '<p>' + escapeHTML(body) + '</p>') + '</section>').join('') + projectVideos(p.videos) + projectEmbeddedVideo(p.videoEmbed) + projectReferences(p.references) + (p.gallery ? '<div class="detail-gallery">' + p.gallery.map(([file,label]) => '<figure><a href="assets/images/' + file + '" target="_blank" rel="noopener noreferrer" aria-label="' + escapeHTML(label) + 'を大きく開く">' + projectImage(file, label, '', true) + '</a><figcaption>' + escapeHTML(label) + '</figcaption></figure>').join('') + '</div>' : '') + (p.link ? '<a class="text-link detail-link" href="' + p.link[0] + '" target="_blank" rel="noopener noreferrer">' + escapeHTML(p.link[1]) + ' ↗</a>' : '') + '<p class="detail-credit">' + escapeHTML(p.credit) + '</p></article>';
+  content.innerHTML = '<article class="project-detail"><p class="project-category">' + escapeHTML(p.category) + '</p><h2 id="dialog-title">' + escapeHTML(p.title) + '</h2><p class="project-lead">' + escapeHTML(p.lead) + '</p><dl>' + p.facts.map(([a,b]) => '<div><dt>' + escapeHTML(a) + '</dt><dd>' + escapeHTML(b) + '</dd></div>').join('') + '</dl><a class="detail-hero-link" href="assets/images/' + p.hero + '" target="_blank" rel="noopener noreferrer" aria-label="作品画像を大きく開く">' + projectImage(p.hero, p.alt, 'detail-hero') + '<span>画像を大きく表示 ↗</span></a>' + p.sections.map(([title,body]) => '<section class="detail-section"><h3>' + escapeHTML(title) + '</h3>' + (Array.isArray(body) ? '<ul>' + body.map(t => '<li>' + escapeHTML(t) + '</li>').join('') + '</ul>' : '<p>' + escapeHTML(body) + '</p>') + '</section>').join('') + projectLocalVideo(p.videoLocal) + projectVideos(p.videos) + projectEmbeddedVideo(p.videoEmbed) + projectReferences(p.references) + (p.gallery ? '<div class="detail-gallery">' + p.gallery.map(([file,label]) => '<figure><a href="assets/images/' + file + '" target="_blank" rel="noopener noreferrer" aria-label="' + escapeHTML(label) + 'を大きく開く">' + projectImage(file, label, '', true) + '</a><figcaption>' + escapeHTML(label) + '</figcaption></figure>').join('') + '</div>' : '') + (p.link ? '<a class="text-link detail-link" href="' + p.link[0] + '" target="_blank" rel="noopener noreferrer">' + escapeHTML(p.link[1]) + ' ↗</a>' : '') + '<p class="detail-credit">' + escapeHTML(p.credit) + '</p></article>';
   content.querySelectorAll('details.demo-disclosure').forEach(details => details.addEventListener('toggle', () => {
     if (!details.open) details.querySelector('video')?.pause();
     syncEmbeddedVideo(details);
@@ -295,7 +305,7 @@ function renderProject(key, historyMode = 'push') {
   }));
   nextButton.innerHTML = '次の作品：' + escapeHTML(projects[projectKeys[(index + 1) % projectKeys.length]].title) + ' <span aria-hidden="true">→</span>';
   if (!wasOpen) {
-    document.querySelector('video')?.pause();
+    document.querySelectorAll('.work-card video').forEach(video => video.pause());
     dialog.showModal();
     document.body.classList.add('dialog-open');
   }
