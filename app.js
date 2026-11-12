@@ -89,27 +89,33 @@ const projects = {
     credit:'バーチャル万博の業務案件として2名で制作。既存会場をイベント向けに改修。ブランド・アバターなどの権利は各権利者に帰属する。'
   },
   festival:{
-    title:'EXPOアリーナ 盆踊り大会',category:'業務案件・チーム制作',
-    lead:'バーチャル万博の業務として、EXPOアリーナの盆踊り会場と大屋根リング版の会場を制作した。EXPOアリーナでは屋台・和太鼓・食品小物などを、大屋根リング版では会場全体を単独で制作した。',
-    facts:[['制作形態','業務案件（EXPOアリーナ・大屋根リング版）'],['制作時期','2025年7月頃'],['EXPOアリーナ','制作期間：約2週間 / 2名'],['大屋根リング版','会場制作：約1週間・単独（案件全体の記録：2週間・2名）'],['担当','会場改修・屋台・和太鼓・食品小物 / 大屋根リング版会場制作'],['使用技術','Unity / Blender / GIMP']],
+    title:'EXPOアリーナ 盆踊り大会',category:'業務案件・EXPOアリーナ版2名制作／大屋根リング版会場単独制作',
+    lead:'バーチャル万博の業務として、EXPOアリーナの盆踊り会場を2名で制作した。その後、別会場である大屋根リング版の会場全体を朝倉が約1週間で単独制作。両者では制作体制と担当範囲が異なる。',
+    facts:[['制作形態','バーチャル万博の業務制作'],['制作時期','2025年7月頃'],['EXPOアリーナ版','約2週間・2名で制作'],['大屋根リング版','会場全体を約1週間で朝倉が単独制作'],['担当','EXPOアリーナ：会場改修・屋台・和太鼓・食品小物／大屋根リング版：会場全体の制作'],['使用技術','Unity / Blender / GIMP']],
     hero:'expo-festival.webp',alt:'夕焼けの盆踊り会場に、提灯、やぐら、屋台が並んでいる。',
     sections:[
-      ['EXPOアリーナ版の制作',['既存のEXPOアリーナを盆踊り会場に改修し、提灯・屋台・やぐらなどを配置。','和太鼓や、わたあめ・フランクフルト・焼きトウモロコシなどの食品小物を制作。','制作期間は約2週間、制作人数は2名である。']],
-      ['大屋根リング版の制作',['EXPOアリーナでの盆踊り大会直後、急な依頼を受けて別会場を制作。2025年7月28日にイベントが開催された。','会場用のテンプレートがない状態から、設計図や現地写真を参考に大屋根リングを実寸に近い規模でモデリングした。','朝倉が会場全体を約1週間で単独制作。ワープ機能・映像配信・ギミックなどはUnityエンジニアと連携して仕上げた。','案件全体については作品集に制作期間2週間・制作人数2名と記録されている。']],
-      ['来場者との交流','イベント進行とは別に、自主的に来場者と交流。自ら制作した会場やギミック、景色を楽しめるフォトスポットを案内した。']
+      ['EXPOアリーナ版（2名制作）',['既存のEXPOアリーナを盆踊り会場に改修し、提灯・屋台・やぐらなどを配置。','朝倉は和太鼓や、わたあめ・フランクフルト・焼きトウモロコシなどの食品小物を制作。','EXPOアリーナ版の制作期間は約2週間、制作人数は2名。']],
+      ['大屋根リング版（会場制作は単独）',['EXPOアリーナでの盆踊り大会直後、急な依頼を受けて別会場を制作。2025年7月28日にイベントが開催された。','会場のテンプレートがない状態から、設計図や現地写真を参考に大屋根リングを実寸に近い規模でモデリング。','朝倉が会場全体を約1週間で単独制作。ワープ機能や映像配信などのギミックはUnityエンジニアと連携して仕上げた。']],
+      ['来場者との交流','イベント進行の担当とは別に、自主的に来場者と交流。制作した会場やギミック、景色を楽しめるフォトスポットを案内した。']
     ],
     references:[{"url":"https://www.expo2025.or.jp/officialblog/blog-20250724-02/","label":"盆踊り大会の公式紹介"}],
     gallery:[['expo-festival-overview.webp','盆踊り会場の全体構成'],['expo-drum.webp','和太鼓とやぐら'],['expo-food-props.webp','アバターが持つ食品小物'],['expo-ring.webp','大屋根リングでの盆踊り会場の記録'],['expo-ring-bonodori-overview.png','大屋根リング版：提灯と会場全体の構成'],['expo-ring-bonodori-screen.png','大屋根リング版：会場に設置された大型スクリーン']],
-    credit:'バーチャル万博の業務案件。EXPOアリーナ版は2名で制作。大屋根リング版は朝倉柊太が会場全体を単独制作し、ワープ機能・映像配信等のギミックはUnityエンジニアと連携した。'
+    credit:'バーチャル万博の業務制作。EXPOアリーナ版は2名で制作。大屋根リング版の会場全体は朝倉柊太が単独制作し、ワープ機能・映像配信等のギミックはUnityエンジニアと連携した。'
   },
   closing:{
-    title:'バーチャル万博 閉幕式会場',category:'業務案件・単独制作',
-    lead:'バーチャル万博の閉幕式に向けて急きょ依頼され、2025年9月中旬頃に約1週間で会場全体を単独制作した。秋らしい空間づくりに加え、落ち葉のギミックも制作した。',
-    facts:[['制作形態','業務案件・会場単独制作'],['制作時期','2025年9月中旬頃（約1週間）'],['制作人数','会場制作：1名'],['担当','会場全体の制作・落ち葉のギミック']],
-    hero:'expo-closing-venue.png',alt:'秋の木々と夕焼けに囲まれたバーチャル万博の閉幕式会場。',
-    sections:[['短期間での会場制作','急な依頼を受け、約1週間で会場全体を一人で制作した。'],['会場とギミック','秋の景観に合わせた会場構成を制作し、落ち葉のギミックも担当した。'],['来場者との交流','イベント進行は別の担当者が行う中、来場者と自主的に交流。自分が制作したギミックや、綺麗に撮影できるフォトスポットなどを案内した。']],
-    gallery:[['expo-closing-photo-spot.png','閉幕式会場の景観とフォトスポットでの交流']],
-    credit:'バーチャル万博の業務として、閉幕式会場全体と落ち葉のギミックを朝倉柊太が制作（2025年9月中旬頃）。'
+    title:'バーチャル万博 閉幕式会場',category:'業務案件・会場単独制作',
+    lead:'バーチャル万博の閉幕式に向け、2025年9月中旬頃に約1週間で会場全体を単独制作した。来場者は紅葉に囲まれた広い道を進み、これまでのパビリオンやイベントを見ながら振り返る。最後に焚き火のある小さな広場に到達し、そこでスタッフが閉幕式を開催した。別セッションルームを含む参加者は総計約500名。',
+    facts:[['制作形態','バーチャル万博の業務案件・会場単独制作'],['制作時期','2025年9月中旬頃（制作期間：約1週間）'],['制作人数','会場制作：朝倉1名（式典の進行はスタッフ）'],['担当','会場全体の制作・秋の景観・落ち葉のギミック'],['来場規模','別セッションルームを含む総計：約500名']],
+    hero:'expo-closing-crowd.png',alt:'焚き火を囲む多数の来場者。画面左上に99/100と表示された閉幕式会場。',
+    sections:[
+      ['閉幕式会場の目的と体験','万博の締めくくりとして、これまでのパビリオンやイベントを振り返るための会場。来場者は紅葉に囲まれた広い道を歩き、過去の催しを見ながら奥へ進む。'],
+      ['道の終点にある閉幕式の広場','広い道を進んだ先には焚き火のある小さな広場があり、そこでスタッフが閉幕式を開催した。会場制作と式典進行は別の担当者が担った。'],
+      ['会場制作と落ち葉のギミック','急な依頼を受け、2025年9月中旬頃に約1週間で会場全体を単独制作。紅葉や夕景を取り入れた空間づくりと落ち葉のギミックを担当した。'],
+      ['来場規模・来場者との交流','当日は別セッションルームを含む総計約500名が参加。朝倉は進行担当とは別に来場者と自主的に交流し、制作したギミックや景色を楽しめるフォトスポットを案内した。']
+    ],
+    videoEmbed:{label:'閉幕式会場の紹介動画',duration:'会場の収録映像',topline:'これまでの催しを振り返る道から、焚き火の広場へ',clock:'会場紹介',src:'https://drive.google.com/file/d/12zAP1gIwy_0TVHm6JMwmDbQIQrxZqDpY/preview',watchUrl:'https://drive.google.com/file/d/12zAP1gIwy_0TVHm6JMwmDbQIQrxZqDpY/view',description:'紅葉の広い道を歩きながら過去のパビリオンやイベントを振り返り、最後に焚き火のある小さな広場でスタッフが閉幕式を開催する会場の紹介。',sourceNote:'Google Driveの会場収録動画を埋め込み表示。約343MBの動画のため再生に時間がかかる場合がある。再生できない場合は'},
+    gallery:[['expo-closing-gathering.png','閉幕式会場で来場者が集まった記念写真'],['expo-closing-venue.png','焚き火と閉幕式の案内スクリーンを設けた終点の広場'],['expo-closing-photo-spot.png','夕景のフォトスポットでの集合写真（従来掲載分）']],
+    credit:'バーチャル万博の閉幕式会場全体と落ち葉のギミックを朝倉柊太が単独制作（2025年9月中旬頃、約1週間）。式典の進行はスタッフが担当。参加者は別セッションルームを含む総計約500名。'
   },
   quiz:{
     title:'ARミャクミャクとクイズ',category:'業務案件・ARコンテンツ制作',
@@ -134,6 +140,8 @@ const projects = {
 
 const imageDimensions = {
   "selfstudy-bed.jpg": [3072,1727],
+  "expo-closing-crowd.png": [2340,1080],
+  "expo-closing-gathering.png": [1924,1080],
   "expo-closing-venue.png": [2340,1080],
   "expo-closing-photo-spot.png": [2340,1080],
   "expo-ring-bonodori-overview.png": [1904,1080],
@@ -235,15 +243,15 @@ function projectImage(file, alt, className = '', lazy = false) {
 function projectLocalVideo(video) {
   if (!video) return '';
   const source = 'assets/video/' + video.file + '.mp4';
-  return '<section class="detail-media" aria-label="紹介動画"><h3>紹介動画</h3><details class="demo-disclosure"><summary><span>紹介動画を見る</span><span class="demo-duration">' + escapeHTML(video.duration) + '</span><span class="disclosure-icon" aria-hidden="true">＋</span></summary><div class="demo-body"><p class="demo-description">' + escapeHTML(video.description) + '</p><div class="media-topline"><span>' + escapeHTML(video.label) + '</span><span>' + escapeHTML(video.clock) + '</span></div><video controls playsinline preload="none" poster="assets/images/' + escapeHTML(video.poster) + '" aria-label="' + escapeHTML(video.label) + '"><source src="' + escapeHTML(source) + '" type="video/mp4">' + (video.captions ? '<track kind="captions" src="assets/video/' + escapeHTML(video.captions) + '" srclang="ja" label="日本語の内容説明">' : '') + 'お使いのブラウザーでは動画を再生できません。<a href="' + escapeHTML(source) + '">MP4を開く</a></video><p class="media-note">' + escapeHTML(video.note) + '</p></div></details></section>';
+  return '<section class="detail-media" aria-label="紹介動画"><h3>紹介動画</h3><details class="demo-disclosure"><summary><span>紹介動画を見る</span><span class="demo-duration">' + escapeHTML(video.duration) + '</span><span class="disclosure-icon" aria-hidden="true">＋</span></summary><div class="demo-body"><p class="demo-description">' + escapeHTML(video.description) + '</p><div class="media-topline"><span>' + escapeHTML(video.label) + '</span><span>' + escapeHTML(video.clock) + '</span></div><video controls playsinline preload="none" poster="assets/images/' + escapeHTML(video.poster) + '" aria-label="' + escapeHTML(video.label) + '"><source src="' + escapeHTML(source) + '" type="video/mp4">' + (video.captions ? '<track kind="captions" src="assets/video/' + escapeHTML(video.captions) + '" srclang="ja" label="日本語の内容説明">' : '') + 'このブラウザーでは動画を再生できない。<a href="' + escapeHTML(source) + '">MP4を開く</a></video><p class="media-note">' + escapeHTML(video.note) + '</p></div></details></section>';
 }
 function projectVideos(videos) {
   if (!videos?.length) return '';
-  return '<section class="detail-media" aria-labelledby="detail-media-title"><h3 id="detail-media-title">映像で見る</h3><p class="media-note">完成映像とBlenderの制作画面です。すべて音声なしで、再生ボタンからご覧いただけます。</p>' + videos.map(v => '<details class="demo-disclosure"><summary><span>' + escapeHTML(v.label) + '</span><span class="demo-duration">' + escapeHTML(v.duration) + '</span><span class="disclosure-icon" aria-hidden="true">＋</span></summary><div class="demo-body"><video controls playsinline preload="none" poster="assets/images/' + v.file + '.webp" aria-label="' + escapeHTML(v.label + '、' + v.duration + '、音声なし') + '"><source src="assets/video/' + v.file + '.mp4" type="video/mp4">お使いのブラウザーでは動画を再生できません。<a href="assets/video/' + v.file + '.mp4">MP4を開く</a></video><p class="media-note">' + escapeHTML(v.description) + '</p></div></details>').join('') + '</section>';
+  return '<section class="detail-media" aria-labelledby="detail-media-title"><h3 id="detail-media-title">映像で見る</h3><p class="media-note">完成映像とBlenderの制作画面。すべて音声なし。再生ボタンから閲覧できる。</p>' + videos.map(v => '<details class="demo-disclosure"><summary><span>' + escapeHTML(v.label) + '</span><span class="demo-duration">' + escapeHTML(v.duration) + '</span><span class="disclosure-icon" aria-hidden="true">＋</span></summary><div class="demo-body"><video controls playsinline preload="none" poster="assets/images/' + v.file + '.webp" aria-label="' + escapeHTML(v.label + '、' + v.duration + '、音声なし') + '"><source src="assets/video/' + v.file + '.mp4" type="video/mp4">このブラウザーでは動画を再生できない。<a href="assets/video/' + v.file + '.mp4">MP4を開く</a></video><p class="media-note">' + escapeHTML(v.description) + '</p></div></details>').join('') + '</section>';
 }
 function projectEmbeddedVideo(video) {
   if (!video) return '';
-  return '<section class="detail-media" aria-label="紹介動画"><h3>紹介動画</h3><details class="demo-disclosure"><summary><span>' + escapeHTML(video.label) + '</span><span class="demo-duration">' + escapeHTML(video.duration) + '</span><span class="disclosure-icon" aria-hidden="true">＋</span></summary><div class="demo-body"><p class="demo-description">' + escapeHTML(video.description) + '</p><div class="media-topline"><span>' + escapeHTML(video.topline || video.label) + '</span><span>' + escapeHTML(video.clock || '') + '</span></div><iframe class="embedded-video" data-src="' + escapeHTML(video.src) + '" title="' + escapeHTML(video.label) + '" loading="lazy" allow="fullscreen; picture-in-picture" allowfullscreen></iframe><p class="media-note">Google Driveの軽量版を埋め込み表示。再生できない場合は <a href="' + escapeHTML(video.watchUrl) + '" target="_blank" rel="noopener noreferrer">Google Driveで動画を開く</a>。</p></div></details></section>';
+  return '<section class="detail-media" aria-label="紹介動画"><h3>紹介動画</h3><details class="demo-disclosure"><summary><span>' + escapeHTML(video.label) + '</span><span class="demo-duration">' + escapeHTML(video.duration) + '</span><span class="disclosure-icon" aria-hidden="true">＋</span></summary><div class="demo-body"><p class="demo-description">' + escapeHTML(video.description) + '</p><div class="media-topline"><span>' + escapeHTML(video.topline || video.label) + '</span><span>' + escapeHTML(video.clock || '') + '</span></div><iframe class="embedded-video" data-src="' + escapeHTML(video.src) + '" title="' + escapeHTML(video.label) + '" loading="lazy" allow="fullscreen; picture-in-picture" allowfullscreen></iframe><p class="media-note">' + escapeHTML(video.sourceNote || 'Google Driveの動画を埋め込み表示。再生できない場合は') + ' <a href="' + escapeHTML(video.watchUrl) + '" target="_blank" rel="noopener noreferrer">Google Driveで動画を開く</a>。</p></div></details></section>';
 }
 function syncEmbeddedVideo(details) {
   const iframe = details.querySelector('iframe[data-src]');
@@ -255,7 +263,7 @@ function syncEmbeddedVideo(details) {
     iframe.removeAttribute('src');
   }
 }
-const cardDemoDisclosures = document.querySelectorAll('#demo, #sales-demo, #aquarium-demo, #meeting-demo');
+const cardDemoDisclosures = document.querySelectorAll('#demo, #sales-demo, #aquarium-demo, #meeting-demo, #closing-demo');
 cardDemoDisclosures.forEach(details => details.addEventListener('toggle', () => {
   if (!details.open) details.querySelector('video')?.pause();
   if (details.open) {
@@ -352,8 +360,8 @@ nextButton.addEventListener('click', () => renderProject(projectKeys[(projectKey
 copyButton.addEventListener('click', async () => {
   try {
     await navigator.clipboard.writeText(location.href);
-    copyButton.textContent = 'コピーしました';
-    document.querySelector('#copy-status').textContent = 'この作品へのリンクをコピーしました。';
+    copyButton.textContent = 'コピー完了';
+    document.querySelector('#copy-status').textContent = 'この作品へのリンクをコピーした。';
     copyReset = setTimeout(() => { copyButton.textContent = 'リンクをコピー'; }, 2500);
   } catch {
     // A selectable, inline fallback also works when clipboard permission is absent.
@@ -368,7 +376,7 @@ copyButton.addEventListener('click', async () => {
     input.value = location.href;
     input.focus();
     input.select();
-    document.querySelector('#copy-status').textContent = '共有URLを選択しました。コピーしてお使いください。';
+    document.querySelector('#copy-status').textContent = '共有URLを選択した。必要に応じてコピーできる。';
   }
 });
 window.addEventListener('popstate', syncRoute);
