@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#1e2c42"/><stop offset="1" stop-color="#456d7d"/></linearGradient></defs>
+<rect width="1200" height="750" fill="url(#bg)"/>
+<path d="M0 590 600 370 1200 575V750H0Z" fill="#6caaa7" opacity=".24"/>
+<g stroke="#c4e8ed" stroke-width="3" fill="none" opacity=".32"><path d="M674 195h405v322H674zM755 195v322M919 195v322M674 364h405M755 195l115-83h282v320l-73 85"/><path d="m681 528 102-45h211l75 45M768 484v-73h155v73"/></g>
+<g font-family="sans-serif"><rect x="74" y="89" width="188" height="33" rx="4" fill="#dcecef" opacity=".2"/><text x="91" y="111" font-size="16" fill="#e1f6f8">3D DESIGN WORK</text><text x="74" y="290" font-size="60" font-weight="bold" fill="white">バーチャル</text><text x="74" y="366" font-size="60" font-weight="bold" fill="white">ミーティング</text><text x="75" y="416" font-size="26" fill="#e3f1f5">大阪オフィス</text><path d="M74 452h370" stroke="#a4dbd9" stroke-width="4"/><text x="76" y="493" font-size="21" fill="#e8f3f4">Blender / GIMP</text><text x="74" y="697" font-size="17" fill="#eaf2f3">紹介用タイトルカード（実際のアプリ画面ではありません）</text></g>
+</svg>

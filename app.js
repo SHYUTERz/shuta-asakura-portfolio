@@ -16,6 +16,20 @@ const projects = {
     gallery:[['mogumogu-registration.webp','食品を続けて入力し、まとめて登録する画面'],['mogumogu-inventory.webp','期限や状態を確認できる食品一覧'],['mogumogu-playground.webp','移動・呼びかけの基盤を実装した日光浴広場（UIは調整中）']],
     credit:'朝倉による個人開発。2026年11月提供の紹介映像と掲載用の画面を使用。BGMはKevin MacLeod「Easy Lemon」（CC BY 4.0）。曲の著作権は作曲者に帰属します。'
   },
+  sales:{
+    title:'SalesManagement21 販売管理システム',category:'Windowsアプリ・チーム開発',
+    lead:'大阪情報コンピュータ専門学校のシステム開発演習で6名が共同制作したWindows向け販売管理システム。顧客・商品などのマスター管理から、受注・発注・入出庫・売上・在庫までを扱います。',
+    facts:[['制作形態','専門学校の演習・6名による共同制作'],['開発言語・UI','C# / Windows Forms / .NET Framework 4.6.1'],['データアクセス','Entity Framework 6.4.4 / SQL Server LocalDB'],['主な特徴','仮登録・社員権限管理・確定時の業務データ連携']],
+    hero:'sales-management-menu.png',alt:'販売管理システムのメニュー。顧客・商品・社員のマスターと受注・発注・入出庫・売上・在庫の画面を選択できる。',
+    sections:[
+      ['管理機能',['顧客・営業所・商品・メーカー・商品分類・社員・役職の情報を登録・検索・更新・削除。','受注・注文・出庫・入荷・出荷・発注・入庫・売上・在庫を管理。','画面内の関連IDから別の管理画面に移動して検索できます。']],
+      ['仮登録機能',['1件の受注・発注に複数の商品明細を追加し、まとめて登録するための機能を用意。','仮登録用データベースに一時保存し、登録完了時に本データベースへ反映。キャンセル時には仮登録用データを初期化します。','仮登録中の商品IDの重複チェックで誤登録の防止を図っています。']],
+      ['業務間の連携',['受注確定時に在庫を減算し、入庫完了時には在庫を加算。対象の商品が未登録の場合は在庫情報を追加する処理を設計。','出荷確定を売上情報へ反映し、確定済みのレコードについては特定の更新を制限。']],
+      ['社員権限管理',['本社・営業所・物流（倉庫）の3区分で利用可能な画面を分け、使えない機能は無効なボタンとして表示。','社員登録後、所属情報が設定されるまでは利用を制限する運用を想定。']],
+      ['チーム制作について','6名の共同作品です。個人ごとの詳細な実装担当範囲は資料では特定できないため、すべての機能を朝倉が単独で開発したとは表記していません。']
+    ],
+    credit:'大阪情報コンピュータ専門学校のシステム開発演習における共同制作。機能説明書、作品紹介資料、C#プロジェクト構成に基づく紹介。掲載画像は制作当時の画面です。'
+  },
   aquarium:{
     title:'アロワナの3Dモデル',category:'3Dモデル・共同制作',
     lead:'朝倉がモデリングとアニメーションを制作したアロワナです。魚体や鱗の見え方に加え、ゆったり泳ぐ動きとUターンを制作し、共同制作の水槽に配置しています。',
@@ -30,6 +44,18 @@ const projects = {
     sections:[['アロワナの制作',['魚体・ひれのモデリングと、動きを付けるためのボーンを制作。','泳ぎとUターンのアニメーションを制作。Blenderで動きを確認し、Unityの水槽内に配置。','水槽の編集とシェーダー調整も担当。水面の揺れにはシェーダー、エアレーションにはParticle Systemを使用。']],['共同制作の経緯と分担','バーチャル万博で共に制作していた先輩デザイナーのHachi.S氏と、隙間時間を使って制作しました。水槽本体の3Dモデリングは、朝倉が伝えた要件に沿ってHachi.S氏が担当。朝倉はアロワナの制作と、水槽編集・シェーダー調整を担当しました。'],['Unityでの構成','水槽・流木・底砂・照明を含めたレイアウトをPrefabにまとめ、Unity URPのシーンに配置して使える構成です。水槽は約5,703 tris。2026年9月18日の更新で、アロワナの置物を追加し、テクスチャを更新しています。']],
     gallery:[['arowana-wireframe.webp','朝倉制作：アロワナのワイヤーフレームとボーン（約2,198 tris）'],['arowana-gold.webp','朝倉制作：金色の魚体と鱗の表現']],
     credit:'アロワナ制作・水槽編集・シェーダー調整：朝倉柊太。水槽本体の3Dモデリング：Hachi.S（バーチャル万博で共に制作した先輩デザイナー）。'
+  },
+  meeting:{
+    title:'バーチャルミーティング 大阪オフィス',category:'3Dデザイン・チーム制作',
+    lead:'大阪オフィスを題材にしたバーチャルミーティング作品の共同制作に、主にデザイナーとして参加。BlenderとGIMPを使用したビジュアル制作を担当しました。',
+    facts:[['朝倉の担当','主にデザイン制作（機能実装は担当外）'],['デザインツール','Blender / GIMP'],['開発チームの環境','Unity / C# / Git'],['制作形態','チーム制作']],
+    hero:'virtual-meeting-cover.svg',alt:'バーチャルミーティング 大阪オフィスの紹介用タイトルカード。実際のアプリ画面ではありません。',
+    sections:[
+      ['制作での担当','朝倉は主に3D・画像を扱うデザイナーとして参加しました。デザインに使用したツールはBlenderとGIMPです。'],
+      ['チームでの開発体制','アプリの開発チームはUnity / C#とGitを使用。機能の設計やプログラム実装は、朝倉の担当実績として記載していません。'],
+      ['掲載できる範囲','元の紹介動画には共有上の注意事項があるため、動画は掲載していません。表紙は作品名を示す紹介用タイトルカードであり、実際のアプリ画面ではありません。']
+    ],
+    credit:'チーム制作。朝倉は主にBlender / GIMPでのデザインを担当。Unity / C# / Gitによる機能開発は別の開発チームが担当。表紙は説明用タイトルカードです。'
   },
   information:{
     title:'バーチャル万博 案内所',category:'XR空間・チーム制作',
@@ -83,6 +109,8 @@ const projects = {
 
 
 const imageDimensions = {
+  "sales-management-menu.png": [1920,1020],
+  "virtual-meeting-cover.svg": [1200,750],
   "mogumogu-overview.webp": [1920,1080],
   "mogumogu-registration.webp": [402,872],
   "mogumogu-inventory.webp": [402,872],
@@ -210,7 +238,7 @@ function renderProject(key, historyMode = 'push') {
   copyButton.textContent = 'リンクをコピー';
   document.querySelector('#copy-status').textContent = '';
   const index = projectKeys.indexOf(key);
-  dialog.querySelector('.dialog-index').textContent = String(index + 1).padStart(2, '0') + ' / 06';
+  dialog.querySelector('.dialog-index').textContent = String(index + 1).padStart(2, '0') + ' / ' + String(projectKeys.length).padStart(2, '0');
   content.innerHTML = '<article class="project-detail"><p class="project-category">' + escapeHTML(p.category) + '</p><h2 id="dialog-title">' + escapeHTML(p.title) + '</h2><p class="project-lead">' + escapeHTML(p.lead) + '</p><dl>' + p.facts.map(([a,b]) => '<div><dt>' + escapeHTML(a) + '</dt><dd>' + escapeHTML(b) + '</dd></div>').join('') + '</dl><a class="detail-hero-link" href="assets/images/' + p.hero + '" target="_blank" rel="noopener noreferrer" aria-label="作品画像を大きく開く">' + projectImage(p.hero, p.alt, 'detail-hero') + '<span>画像を大きく表示 ↗</span></a>' + p.sections.map(([title,body]) => '<section class="detail-section"><h3>' + escapeHTML(title) + '</h3>' + (Array.isArray(body) ? '<ul>' + body.map(t => '<li>' + escapeHTML(t) + '</li>').join('') + '</ul>' : '<p>' + escapeHTML(body) + '</p>') + '</section>').join('') + projectVideos(p.videos) + projectReferences(p.references) + (p.gallery ? '<div class="detail-gallery">' + p.gallery.map(([file,label]) => '<figure><a href="assets/images/' + file + '" target="_blank" rel="noopener noreferrer" aria-label="' + escapeHTML(label) + 'を大きく開く">' + projectImage(file, label, '', true) + '</a><figcaption>' + escapeHTML(label) + '</figcaption></figure>').join('') + '</div>' : '') + (p.link ? '<a class="text-link detail-link" href="' + p.link[0] + '" target="_blank" rel="noopener noreferrer">' + escapeHTML(p.link[1]) + ' ↗</a>' : '') + '<p class="detail-credit">' + escapeHTML(p.credit) + '</p></article>';
   content.querySelectorAll('details.demo-disclosure').forEach(details => details.addEventListener('toggle', () => {
     if (!details.open) details.querySelector('video')?.pause();
