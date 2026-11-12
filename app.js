@@ -59,13 +59,22 @@ const projects = {
     credit:'朝倉提供の作品集より。2名でのチーム制作。既存テンプレートを活用。画像内の全ての構成要素を朝倉が単独で制作したものではありません。'
   },
   quiz:{
-    title:'QuizKnock クイズイベント AR版',category:'ARコンテンツ・チーム制作',
-    lead:'VRとARの両方を使い、各地のクイズを解いてキーワードを集めるイベント。チーム内で担当を分け、朝倉はAR版のコンテンツ制作を担当しました。',
-    facts:[['制作期間','2週間'],['制作人数','2名'],['朝倉の担当','AR版コンテンツ制作'],['使用技術','Unity / Blender / GIMP']],
+    title:'ARミャクミャクとクイズ',category:'大阪・関西万博 / ARコンテンツ・チーム制作',
+    lead:'大阪・関西万博の開催期間中、バーチャル万博アプリで提供された2つのAR体験に携わりました。朝倉は、ARミャクミャクのアニメーションと、QuizKnockのクイズイベントのAR版コンテンツ制作を担当しました。',
+    facts:[['担当','ARミャクミャクのアニメーション / クイズAR版コンテンツ制作'],['制作期間','クイズ：2週間'],['制作人数','クイズ：2名'],['使用技術','Unity / Blender / GIMP']],
     hero:'quiz-ar.webp',alt:'QuizKnockのARクイズで使う問題・正解・キーワード案内の画面。',
-    sections:[['体験の構成','ARを開始するとガイド画像を表示し、現地でスマートフォンをかざす場所を案内。問題に正解するとキーワードを獲得し、VR側とあわせて集める仕組みです。'],['制作分担','UnityエンジニアがVR・ARの画面レイアウトを設計。マルチデバイス対応を考慮して分担し、朝倉がAR版の制作を担当しました。VR側は関連するチーム制作の記録として掲載しています。']],
+    sections:[
+      ['ARミャクミャクのアニメーション','スマートフォンのカメラ越しに現実の景色へミャクミャクが現れ、一緒に記念撮影を楽しめるAR体験です。朝倉は、ARで表示されるミャクミャクのアニメーション制作を担当しました。'],
+      ['QuizKnockのARクイズ','「リアル×バーチャルで万博を巡る！QuizKnockと知るクイズの旅」のAR版を制作しました。写真のヒントを頼りに会場内を巡り、クイズに正解するとキーワードを獲得。AR5問とVR5問の計10問を通じて、限定アイテムを探すイベントでした。'],
+      ['クイズ制作の分担','クイズの問題制作はQuizKnock。UnityエンジニアがVR・ARの画面レイアウトを設計し、マルチデバイス対応を考慮して担当を分け、朝倉がAR版コンテンツを制作しました。制作期間2週間・制作人数2名は、このクイズ制作の記録です。VR側の画像は、チームで制作した関連画面として掲載しています。'],
+      ['番組で紹介された体験','MBS「超万博♡宣伝部」第6回（2025年10月4日放送）では、会場でARクイズに回答する様子と、巨大ミャクミャクと記念撮影するAR体験が紹介されました。']
+    ],
+    references:[
+      {url:'https://www.expo2025.or.jp/officialblog/blog-20250821-01/',label:'クイズ企画の公式紹介'},
+      {url:'https://www.expo2025.or.jp/news/news-20250926-04/',label:'ARミャクミャクなどの公式企画案内'}
+    ],
     gallery:[['quiz-vr.webp','チームで制作したVR版の関連画面']],
-    credit:'朝倉提供の作品集より。クイズやブランド・キャラクターの権利は各権利者に帰属します。イベント全体を朝倉が単独で企画・実装したものではありません。'
+    credit:'朝倉提供の作品集と担当情報に基づき掲載。クイズの問題制作：QuizKnock。ミャクミャクのキャラクターデザイン、ブランド、番組映像等の権利は各権利者に帰属します。朝倉の担当はARミャクミャクのアニメーションとクイズAR版コンテンツ制作です。'
   }
 };
 
@@ -170,6 +179,10 @@ function projectVideos(videos) {
   if (!videos?.length) return '';
   return '<section class="detail-media" aria-labelledby="detail-media-title"><h3 id="detail-media-title">映像で見る</h3><p class="media-note">完成映像とBlenderの制作画面です。すべて音声なしで、再生ボタンからご覧いただけます。</p>' + videos.map(v => '<details class="demo-disclosure"><summary><span>' + escapeHTML(v.label) + '</span><span class="demo-duration">' + escapeHTML(v.duration) + '</span><span class="disclosure-icon" aria-hidden="true">＋</span></summary><div class="demo-body"><video controls playsinline preload="none" poster="assets/images/' + v.file + '.webp" aria-label="' + escapeHTML(v.label + '、' + v.duration + '、音声なし') + '"><source src="assets/video/' + v.file + '.mp4" type="video/mp4">お使いのブラウザーでは動画を再生できません。<a href="assets/video/' + v.file + '.mp4">MP4を開く</a></video><p class="media-note">' + escapeHTML(v.description) + '</p></div></details>').join('') + '</section>';
 }
+function projectReferences(references) {
+  if (!references?.length) return '';
+  return '<section class="detail-section"><h3>大阪・関西万博公式の紹介</h3><ul>' + references.map(reference => '<li><a class="text-link" href="' + escapeHTML(reference.url) + '" target="_blank" rel="noopener noreferrer">' + escapeHTML(reference.label) + ' <span aria-hidden="true">↗</span></a></li>').join('') + '</ul></section>';
+}
 function pauseProjectVideos() {
   content.querySelectorAll('video').forEach(video => video.pause());
 }
@@ -195,7 +208,7 @@ function renderProject(key, historyMode = 'push') {
   document.querySelector('#copy-status').textContent = '';
   const index = projectKeys.indexOf(key);
   dialog.querySelector('.dialog-index').textContent = String(index + 1).padStart(2, '0') + ' / 06';
-  content.innerHTML = '<article class="project-detail"><p class="project-category">' + escapeHTML(p.category) + '</p><h2 id="dialog-title">' + escapeHTML(p.title) + '</h2><p class="project-lead">' + escapeHTML(p.lead) + '</p><dl>' + p.facts.map(([a,b]) => '<div><dt>' + escapeHTML(a) + '</dt><dd>' + escapeHTML(b) + '</dd></div>').join('') + '</dl><a class="detail-hero-link" href="assets/images/' + p.hero + '" target="_blank" rel="noopener noreferrer" aria-label="作品画像を大きく開く">' + projectImage(p.hero, p.alt, 'detail-hero') + '<span>画像を大きく表示 ↗</span></a>' + p.sections.map(([title,body]) => '<section class="detail-section"><h3>' + escapeHTML(title) + '</h3>' + (Array.isArray(body) ? '<ul>' + body.map(t => '<li>' + escapeHTML(t) + '</li>').join('') + '</ul>' : '<p>' + escapeHTML(body) + '</p>') + '</section>').join('') + projectVideos(p.videos) + (p.gallery ? '<div class="detail-gallery">' + p.gallery.map(([file,label]) => '<figure><a href="assets/images/' + file + '" target="_blank" rel="noopener noreferrer" aria-label="' + escapeHTML(label) + 'を大きく開く">' + projectImage(file, label, '', true) + '</a><figcaption>' + escapeHTML(label) + '</figcaption></figure>').join('') + '</div>' : '') + (p.link ? '<a class="text-link detail-link" href="' + p.link[0] + '" target="_blank" rel="noopener noreferrer">' + escapeHTML(p.link[1]) + ' ↗</a>' : '') + '<p class="detail-credit">' + escapeHTML(p.credit) + '</p></article>';
+  content.innerHTML = '<article class="project-detail"><p class="project-category">' + escapeHTML(p.category) + '</p><h2 id="dialog-title">' + escapeHTML(p.title) + '</h2><p class="project-lead">' + escapeHTML(p.lead) + '</p><dl>' + p.facts.map(([a,b]) => '<div><dt>' + escapeHTML(a) + '</dt><dd>' + escapeHTML(b) + '</dd></div>').join('') + '</dl><a class="detail-hero-link" href="assets/images/' + p.hero + '" target="_blank" rel="noopener noreferrer" aria-label="作品画像を大きく開く">' + projectImage(p.hero, p.alt, 'detail-hero') + '<span>画像を大きく表示 ↗</span></a>' + p.sections.map(([title,body]) => '<section class="detail-section"><h3>' + escapeHTML(title) + '</h3>' + (Array.isArray(body) ? '<ul>' + body.map(t => '<li>' + escapeHTML(t) + '</li>').join('') + '</ul>' : '<p>' + escapeHTML(body) + '</p>') + '</section>').join('') + projectVideos(p.videos) + projectReferences(p.references) + (p.gallery ? '<div class="detail-gallery">' + p.gallery.map(([file,label]) => '<figure><a href="assets/images/' + file + '" target="_blank" rel="noopener noreferrer" aria-label="' + escapeHTML(label) + 'を大きく開く">' + projectImage(file, label, '', true) + '</a><figcaption>' + escapeHTML(label) + '</figcaption></figure>').join('') + '</div>' : '') + (p.link ? '<a class="text-link detail-link" href="' + p.link[0] + '" target="_blank" rel="noopener noreferrer">' + escapeHTML(p.link[1]) + ' ↗</a>' : '') + '<p class="detail-credit">' + escapeHTML(p.credit) + '</p></article>';
   content.querySelectorAll('details.demo-disclosure').forEach(details => details.addEventListener('toggle', () => {
     if (!details.open) details.querySelector('video')?.pause();
   }));
