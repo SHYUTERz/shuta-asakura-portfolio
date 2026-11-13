@@ -9,11 +9,11 @@ const projects = {
     sections:[
       ['2つのモード',['食品管理モード：家にある食品と期限を記録し、一覧で確認できます。使った食品と捨てた食品の結果を残します。','育成モード：食品を登録せずに、野菜キャラクターのお世話を楽しむモードです。']],
       ['食品管理の流れ',['食品名と期限・みまもり方法を入力します。分類・メモ・保存場所は必要に応じて設定します。','容器のふたを閉じると、キャラクターが受け取って運びます。食品は続けて入力し、追加した一覧を確認してまとめて登録できます。','冷蔵庫の一覧で食品を確認し、予定が変わったら期限や保管情報を編集できます。食べたら消費完了、捨てたら廃棄として記録します。']],
-      ['紹介動画で見られる工夫',['最近登録した食品は周囲の輝き、期限が近い食品は赤い色で表示します。状態の違いを一覧で確認できます。','性格タイプに応じたキャラクターの表情を選べます。自分の好きな表情を選べます。','日光浴広場では移動と呼びかけの基盤を実装しました。キャラクターは呼びかけに応じて駆け寄ります。']],
-      ['実装している基盤',['Unity / C#で画面・キャラクターの動きと食品管理を制作し、SQLiteでデータを管理します。企画・プログラム・3D・UIまで朝倉が担当しています。','みまもり中の食品について、期限・確認予定日の前日と当日朝9時にまとめて通知するAndroid通知機能、消費実績と育成をつなぐ経験値・ユーザーレベルの基盤を実装しました。これらは今回の動画では紹介していません。','性格に応じた顔Prefabの交換と、PNG連番による表情アニメーションに対応する構成です。']],
+      ['紹介動画で見られる工夫',['最近登録した食品は周囲の輝き、期限が近い食品は赤い色で表示します。状態の違いを一覧で確認できます。','性格タイプに応じて、キャラクターの好きな表情を選べます。','日光浴広場では移動と呼びかけの基盤を実装しました。キャラクターは呼びかけに応じて駆け寄ります。']],
+      ['実装している基盤',['Unity / C#で画面・キャラクターの動きと食品管理を制作し、SQLiteでデータを管理しています。企画・プログラム・3D・UIまで朝倉が担当しています。','みまもり中の食品について、期限・確認予定日の前日と当日朝9時にまとめて通知するAndroid通知機能、消費実績と育成をつなぐ経験値・ユーザーレベルの基盤を実装しました。これらは今回の動画では紹介していません。','性格に応じた顔Prefabの交換と、PNG連番による表情アニメーションに対応する構成です。']],
       ['制作中の部分','アプリは開発中で、映像には仮のUIやテストデータを含みます。カブ・玉ねぎなど他の野菜キャラクターは制作中で、選べる種類を増やす予定です。日光浴広場のおもちゃ遊びの拡充、アニメーションやデザインも制作・調整を進めています。']
     ],
-    videoLocal:{label:'もぐもぐマネジメントの紹介動画',duration:'2分25秒・紹介映像',clock:'02:25',file:'mogumogu-introduction-20261111',poster:'mogumogu-overview.webp',captions:'mogumogu-introduction-ja.vtt',description:'食品の登録・確認・編集・消費・廃棄と、キャラクターとのふれあいを紹介する映像です。',note:'開発中の画面とテストデータを一部含みます。BGMがあります。操作説明は映像内の文字と日本語字幕で確認できます。'},
+    videoLocal:{label:'もぐもぐマネジメントの紹介動画',duration:'2分25秒・紹介映像',clock:'02:25',file:'mogumogu-introduction-20261111',poster:'mogumogu-overview.webp',captions:'mogumogu-introduction-ja.vtt',description:'食品の登録・確認・編集・消費・廃棄と、キャラクターとのふれあいを紹介する映像です。',note:'開発中の画面とテストデータを一部含みます。BGM付きで、操作説明は映像内の文字と日本語字幕で確認できます。'},
     gallery:[['mogumogu-registration.webp','食品を続けて入力し、まとめて登録する画面'],['mogumogu-inventory.webp','期限や状態を確認できる食品一覧'],['mogumogu-playground.webp','移動・呼びかけの基盤を実装した日光浴広場（UIは調整中）']],
     credit:'朝倉による個人開発です。2026年11月提供の紹介映像と掲載用の画面を使用しています。BGMはKevin MacLeod「Easy Lemon」（CC BY 4.0）です。曲の著作権は作曲者に帰属します。'
   },
@@ -100,7 +100,7 @@ const projects = {
     ],
     references:[{"url":"https://www.expo2025.or.jp/officialblog/blog-20250724-02/","label":"盆踊り大会の公式紹介"}],
     gallery:[['expo-festival-overview.webp','盆踊り会場の全体構成'],['expo-drum.webp','和太鼓とやぐら'],['expo-food-props.webp','アバターが持つ食品小物'],['expo-ring.webp','大屋根リングでの盆踊り会場の記録'],['expo-ring-bonodori-overview.png','大屋根リング版：提灯と会場全体の構成'],['expo-ring-bonodori-screen.png','大屋根リング版：会場に設置された大型スクリーン']],
-    credit:'バーチャル万博の業務制作しました。EXPOアリーナ版・大屋根リング版ともに2名で制作しました。大屋根リング版では朝倉柊太が会場全体の制作を担当しました。'
+    credit:'バーチャル万博の業務制作です。EXPOアリーナ版・大屋根リング版ともに2名で制作しました。大屋根リング版では朝倉柊太が会場全体の制作を担当しました。'
   },
   closing:{
     title:'バーチャル万博 閉幕式会場',category:'業務案件・単独制作（Unity実装含む）',
@@ -113,7 +113,7 @@ const projects = {
       ['会場制作と落ち葉のギミック','急な依頼を受け、2025年9月中旬頃に約1週間で会場全体を単独制作しました。紅葉や夕景を取り入れた空間づくりに加え、落ち葉のギミックなどUnityエンジニアとしての実装業務もすべて朝倉が担当しました。'],
       ['来場規模・来場者との交流','当日は別セッションルームを含む総計約500名が参加しました。朝倉は進行担当とは別に来場者と自主的に交流し、制作したギミックや景色を楽しめるフォトスポットを案内しました。']
     ],
-    videoEmbed:{label:'閉幕式会場の紹介動画',duration:'会場の収録映像',topline:'これまでの催しを振り返る道から、焚き火の広場へ',clock:'会場紹介',src:'https://drive.google.com/file/d/12zAP1gIwy_0TVHm6JMwmDbQIQrxZqDpY/preview',watchUrl:'https://drive.google.com/file/d/12zAP1gIwy_0TVHm6JMwmDbQIQrxZqDpY/view',description:'紅葉の広い道を歩きながら過去のパビリオンやイベントを振り返り、最後に焚き火のある小さな広場でスタッフが閉幕式を開催する会場の紹介です。',sourceNote:'Google Driveの会場収録動画を埋め込み表示します。約343MBの動画のため再生に時間がかかる場合があります。再生できない場合は'},
+    videoEmbed:{label:'閉幕式会場の紹介動画',duration:'会場の収録映像',topline:'これまでの催しを振り返る道から、焚き火の広場へ',clock:'会場紹介',src:'https://drive.google.com/file/d/12zAP1gIwy_0TVHm6JMwmDbQIQrxZqDpY/preview',watchUrl:'https://drive.google.com/file/d/12zAP1gIwy_0TVHm6JMwmDbQIQrxZqDpY/view',description:'紅葉の広い道を歩きながら過去のパビリオンやイベントを振り返り、最後に焚き火のある小さな広場でスタッフが閉幕式を開催する会場の紹介です。',sourceNote:'Google Driveの会場収録動画を埋め込み表示しています。約343MBの動画のため再生に時間がかかる場合があります。再生できない場合は'},
     gallery:[['expo-closing-gathering.png','閉幕式会場で来場者が集まった記念写真'],['expo-closing-venue.png','焚き火と閉幕式の案内スクリーンを設けた終点の広場'],['expo-closing-photo-spot.png','夕景のフォトスポットでの集合写真（従来掲載分）']],
     credit:'バーチャル万博の閉幕式会場全体の制作とUnityエンジニア業務を朝倉柊太が単独で担当しました（2025年9月中旬頃、約1週間）。式典の進行はスタッフが担当しました。参加者は別セッションルームを含む総計約500名でした。'
   },
@@ -247,11 +247,11 @@ function projectLocalVideo(video) {
 }
 function projectVideos(videos) {
   if (!videos?.length) return '';
-  return '<section class="detail-media" aria-labelledby="detail-media-title"><h3 id="detail-media-title">映像で見る</h3><p class="media-note">完成映像とBlenderの制作画面です。すべて音声はありません。再生ボタンから閲覧できます。</p>' + videos.map(v => '<details class="demo-disclosure"><summary><span>' + escapeHTML(v.label) + '</span><span class="demo-duration">' + escapeHTML(v.duration) + '</span><span class="disclosure-icon" aria-hidden="true">＋</span></summary><div class="demo-body"><video controls playsinline preload="none" poster="assets/images/' + v.file + '.webp" aria-label="' + escapeHTML(v.label + '、' + v.duration + '、音声なし') + '"><source src="assets/video/' + v.file + '.mp4" type="video/mp4">このブラウザーでは動画を再生できません。<a href="assets/video/' + v.file + '.mp4">MP4を開く</a></video><p class="media-note">' + escapeHTML(v.description) + '</p></div></details>').join('') + '</section>';
+  return '<section class="detail-media" aria-labelledby="detail-media-title"><h3 id="detail-media-title">映像で見る</h3><p class="media-note">完成映像とBlenderの制作画面です。どの動画にも音声はありません。再生ボタンから閲覧できます。</p>' + videos.map(v => '<details class="demo-disclosure"><summary><span>' + escapeHTML(v.label) + '</span><span class="demo-duration">' + escapeHTML(v.duration) + '</span><span class="disclosure-icon" aria-hidden="true">＋</span></summary><div class="demo-body"><video controls playsinline preload="none" poster="assets/images/' + v.file + '.webp" aria-label="' + escapeHTML(v.label + '、' + v.duration + '、音声なし') + '"><source src="assets/video/' + v.file + '.mp4" type="video/mp4">このブラウザーでは動画を再生できません。<a href="assets/video/' + v.file + '.mp4">MP4を開く</a></video><p class="media-note">' + escapeHTML(v.description) + '</p></div></details>').join('') + '</section>';
 }
 function projectEmbeddedVideo(video) {
   if (!video) return '';
-  return '<section class="detail-media" aria-label="紹介動画"><h3>紹介動画</h3><details class="demo-disclosure"><summary><span>' + escapeHTML(video.label) + '</span><span class="demo-duration">' + escapeHTML(video.duration) + '</span><span class="disclosure-icon" aria-hidden="true">＋</span></summary><div class="demo-body"><p class="demo-description">' + escapeHTML(video.description) + '</p><div class="media-topline"><span>' + escapeHTML(video.topline || video.label) + '</span><span>' + escapeHTML(video.clock || '') + '</span></div><iframe class="embedded-video" data-src="' + escapeHTML(video.src) + '" title="' + escapeHTML(video.label) + '" loading="lazy" allow="fullscreen; picture-in-picture" allowfullscreen></iframe><p class="media-note">' + escapeHTML(video.sourceNote || 'Google Driveの動画を埋め込み表示します。再生できない場合は') + ' <a href="' + escapeHTML(video.watchUrl) + '" target="_blank" rel="noopener noreferrer">Google Driveで動画を開く</a>。</p></div></details></section>';
+  return '<section class="detail-media" aria-label="紹介動画"><h3>紹介動画</h3><details class="demo-disclosure"><summary><span>' + escapeHTML(video.label) + '</span><span class="demo-duration">' + escapeHTML(video.duration) + '</span><span class="disclosure-icon" aria-hidden="true">＋</span></summary><div class="demo-body"><p class="demo-description">' + escapeHTML(video.description) + '</p><div class="media-topline"><span>' + escapeHTML(video.topline || video.label) + '</span><span>' + escapeHTML(video.clock || '') + '</span></div><iframe class="embedded-video" data-src="' + escapeHTML(video.src) + '" title="' + escapeHTML(video.label) + '" loading="lazy" allow="fullscreen; picture-in-picture" allowfullscreen></iframe><p class="media-note">' + escapeHTML(video.sourceNote || 'Google Driveの動画を埋め込み表示しています。再生できない場合は') + ' <a href="' + escapeHTML(video.watchUrl) + '" target="_blank" rel="noopener noreferrer">Google Driveで動画を開く</a>。</p></div></details></section>';
 }
 function syncEmbeddedVideo(details) {
   const iframe = details.querySelector('iframe[data-src]');
