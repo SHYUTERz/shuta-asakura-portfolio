@@ -90,17 +90,17 @@ const projects = {
   },
   festival:{
     title:'EXPOアリーナ 盆踊り大会',category:'業務案件・EXPOアリーナ版2名制作／大屋根リング版2名制作',
-    lead:'バーチャル万博の業務として、EXPOアリーナの盆踊り会場を2名で制作した。その後、大屋根リング版もUnityエンジニアとの2名体制で制作。朝倉は約1週間で会場全体の制作を担当した。',
-    facts:[['制作形態','バーチャル万博の業務制作'],['制作時期','2025年7月頃'],['EXPOアリーナ版','約2週間・2名で制作'],['大屋根リング版','約1週間・2名で制作（朝倉が会場制作を担当し、Unityエンジニアとギミックを連携）'],['担当','EXPOアリーナ：会場改修・屋台・和太鼓・食品小物／大屋根リング版：会場全体の制作'],['使用技術','Unity / Blender / GIMP']],
+    lead:'バーチャル万博の業務として、EXPOアリーナ版と大屋根リング版の盆踊り会場をそれぞれ2名で制作した。朝倉はEXPOアリーナ版で屋台や和太鼓などを担当し、大屋根リング版では約1週間で会場全体の制作を担当した。',
+    facts:[['制作形態','バーチャル万博の業務制作'],['制作時期','2025年7月頃'],['EXPOアリーナ版','約2週間・2名で制作'],['大屋根リング版','約1週間・2名で制作'],['担当','EXPOアリーナ：会場改修・屋台・和太鼓・食品小物／大屋根リング版：会場全体の制作'],['使用技術','Unity / Blender / GIMP']],
     hero:'expo-festival.webp',alt:'夕焼けの盆踊り会場に、提灯、やぐら、屋台が並んでいる。',
     sections:[
       ['EXPOアリーナ版（2名制作）',['既存のEXPOアリーナを盆踊り会場に改修し、提灯・屋台・やぐらなどを配置。','朝倉は和太鼓や、わたあめ・フランクフルト・焼きトウモロコシなどの食品小物を制作。','EXPOアリーナ版の制作期間は約2週間、制作人数は2名。']],
-      ['大屋根リング版（2名制作）',['EXPOアリーナでの盆踊り大会直後、急な依頼を受けて別会場を制作。2025年7月28日にイベントが開催された。','会場のテンプレートがない状態から、設計図や現地写真を参考に大屋根リングを実寸に近い規模でモデリング。','大屋根リング版も2名で制作。朝倉が約1週間で会場全体の制作を担当し、ワープ機能や映像配信などのギミックはUnityエンジニアと連携して仕上げた。']],
+      ['大屋根リング版（2名制作）',['EXPOアリーナでの盆踊り大会直後、急な依頼を受けて別会場を制作。2025年7月28日にイベントが開催された。','会場のテンプレートがない状態から、設計図や現地写真を参考に大屋根リングを実寸に近い規模でモデリング。','大屋根リング版は2名体制で制作。朝倉は約1週間で会場全体の制作を担当し、ワープ機能や映像配信などのギミックも設けられた。']],
       ['来場者との交流','イベント進行の担当とは別に、自主的に来場者と交流。制作した会場やギミック、景色を楽しめるフォトスポットを案内した。']
     ],
     references:[{"url":"https://www.expo2025.or.jp/officialblog/blog-20250724-02/","label":"盆踊り大会の公式紹介"}],
     gallery:[['expo-festival-overview.webp','盆踊り会場の全体構成'],['expo-drum.webp','和太鼓とやぐら'],['expo-food-props.webp','アバターが持つ食品小物'],['expo-ring.webp','大屋根リングでの盆踊り会場の記録'],['expo-ring-bonodori-overview.png','大屋根リング版：提灯と会場全体の構成'],['expo-ring-bonodori-screen.png','大屋根リング版：会場に設置された大型スクリーン']],
-    credit:'バーチャル万博の業務制作。EXPOアリーナ版は2名で制作。大屋根リング版も2名で制作し、朝倉柊太が会場全体の制作を担当。ワープ機能・映像配信等のギミックはUnityエンジニアと連携した。'
+    credit:'バーチャル万博の業務制作。EXPOアリーナ版・大屋根リング版ともに2名で制作。大屋根リング版では朝倉柊太が会場全体の制作を担当した。'
   },
   closing:{
     title:'バーチャル万博 閉幕式会場',category:'業務案件・単独制作（Unity実装含む）',
@@ -303,7 +303,7 @@ function renderProject(key, historyMode = 'push') {
   document.querySelector('#copy-status').textContent = '';
   const index = projectKeys.indexOf(key);
   dialog.querySelector('.dialog-index').textContent = String(index + 1).padStart(2, '0') + ' / ' + String(projectKeys.length).padStart(2, '0');
-  content.innerHTML = '<article class="project-detail"><p class="project-category">' + escapeHTML(p.category) + '</p><h2 id="dialog-title">' + escapeHTML(p.title) + '</h2><p class="project-lead">' + escapeHTML(p.lead) + '</p><dl>' + p.facts.map(([a,b]) => '<div><dt>' + escapeHTML(a) + '</dt><dd>' + escapeHTML(b) + '</dd></div>').join('') + '</dl><a class="detail-hero-link" href="assets/images/' + p.hero + '" target="_blank" rel="noopener noreferrer" aria-label="作品画像を大きく開く">' + projectImage(p.hero, p.alt, 'detail-hero') + '<span>画像を大きく表示 ↗</span></a>' + p.sections.map(([title,body]) => '<section class="detail-section"><h3>' + escapeHTML(title) + '</h3>' + (Array.isArray(body) ? '<ul>' + body.map(t => '<li>' + escapeHTML(t) + '</li>').join('') + '</ul>' : '<p>' + escapeHTML(body) + '</p>') + '</section>').join('') + projectLocalVideo(p.videoLocal) + projectVideos(p.videos) + projectEmbeddedVideo(p.videoEmbed) + projectReferences(p.references) + (p.gallery ? '<div class="detail-gallery">' + p.gallery.map(([file,label]) => '<figure><a href="assets/images/' + file + '" target="_blank" rel="noopener noreferrer" aria-label="' + escapeHTML(label) + 'を大きく開く">' + projectImage(file, label, '', true) + '</a><figcaption>' + escapeHTML(label) + '</figcaption></figure>').join('') + '</div>' : '') + (p.link ? '<a class="text-link detail-link" href="' + p.link[0] + '" target="_blank" rel="noopener noreferrer">' + escapeHTML(p.link[1]) + ' ↗</a>' : '') + '<p class="detail-credit">' + escapeHTML(p.credit) + '</p></article>';
+  content.innerHTML = '<article class="project-detail"><p class="project-category">' + escapeHTML(p.category) + '</p><h2 id="dialog-title">' + escapeHTML(p.title) + '</h2><p class="project-lead">' + escapeHTML(p.lead) + '</p>' + (['information','fashion','festival','quiz'].includes(key) ? '<p class="project-team-note">バーチャル万博の業務制作は、閉幕式会場を除きUnityエンジニアと連携して進めた。閉幕式会場はUnity実装を含め単独で担当した。</p>' : '') + '<dl>' + p.facts.map(([a,b]) => '<div><dt>' + escapeHTML(a) + '</dt><dd>' + escapeHTML(b) + '</dd></div>').join('') + '</dl><a class="detail-hero-link" href="assets/images/' + p.hero + '" target="_blank" rel="noopener noreferrer" aria-label="作品画像を大きく開く">' + projectImage(p.hero, p.alt, 'detail-hero') + '<span>画像を大きく表示 ↗</span></a>' + p.sections.map(([title,body]) => '<section class="detail-section"><h3>' + escapeHTML(title) + '</h3>' + (Array.isArray(body) ? '<ul>' + body.map(t => '<li>' + escapeHTML(t) + '</li>').join('') + '</ul>' : '<p>' + escapeHTML(body) + '</p>') + '</section>').join('') + projectLocalVideo(p.videoLocal) + projectVideos(p.videos) + projectEmbeddedVideo(p.videoEmbed) + projectReferences(p.references) + (p.gallery ? '<div class="detail-gallery">' + p.gallery.map(([file,label]) => '<figure><a href="assets/images/' + file + '" target="_blank" rel="noopener noreferrer" aria-label="' + escapeHTML(label) + 'を大きく開く">' + projectImage(file, label, '', true) + '</a><figcaption>' + escapeHTML(label) + '</figcaption></figure>').join('') + '</div>' : '') + (p.link ? '<a class="text-link detail-link" href="' + p.link[0] + '" target="_blank" rel="noopener noreferrer">' + escapeHTML(p.link[1]) + ' ↗</a>' : '') + '<p class="detail-credit">' + escapeHTML(p.credit) + '</p></article>';
   content.querySelectorAll('details.demo-disclosure').forEach(details => details.addEventListener('toggle', () => {
     if (!details.open) details.querySelector('video')?.pause();
     syncEmbeddedVideo(details);
